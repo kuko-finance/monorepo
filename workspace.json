@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "projects": {
+    "kuko-app": {
+      "root": "apps/kuko-app",
+      "sourceRoot": "apps/kuko-app/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/kuko-app",
+            "index": "apps/kuko-app/src/index.html",
+            "main": "apps/kuko-app/src/main.tsx",
+            "polyfills": "apps/kuko-app/src/polyfills.ts",
+            "tsConfig": "apps/kuko-app/tsconfig.app.json",
+            "assets": [
+              "apps/kuko-app/src/favicon.ico",
+              "apps/kuko-app/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/kuko-app/src/environments/environment.ts",
+                  "with": "apps/kuko-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "kuko-app:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "kuko-app:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/kuko-app/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/kuko-app"
+          ],
+          "options": {
+            "jestConfig": "apps/kuko-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "styled-components"
+      },
+      "library": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "kuko-app"
+}
