@@ -1,0 +1,33 @@
+{
+  "name": "@kuko-finance/contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "truffle": "truffle",
+    "ganache": "ganache-cli",
+    "format": "prettier --write 'contracts/**/*.sol'",
+    "lint": "solhint 'contracts/**/*.sol'"
+  },
+  "dependencies": {
+    "@harvestfinance/contracts": "harvest-finance/harvest#master",
+    "@openzeppelin/contracts": "3.3.0",
+    "ganache": "6.4.4",
+    "ganache-cli": "6.12.2",
+    "prettier": "2.2.1",
+    "prettier-plugin-solidity": "1.0.0-beta.3",
+    "solhint": "3.3.2",
+    "solidity-coverage": "0.7.14",
+    "truffle": "5.1.63"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mortimr/tbd-poc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mortimr/tbd-poc/issues"
+  },
+  "homepage": "https://github.com/mortimr/tbd-poc#readme"
+}
