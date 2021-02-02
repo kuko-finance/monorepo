@@ -10,26 +10,30 @@ abstract contract KukoBlocksV1 {
     uint256 public runningPhaseBlockLength;
     uint256 public postFundingPhaseBlockLength;
 
-    constructor(
-        uint256 _fundingPhaseBlockLength,
-        uint256 _runningPhaseBlockLength,
-        uint256 _postFundingPhaseBlockLength
-    )
+    constructor()
         internal
     {
-        require(
-            _postFundingPhaseBlockLength < _runningPhaseBlockLength,
-            "post_funding_exceeds_runtime"
-        );
-
         startBlock = block.number;
-        fundingPhaseBlockLength = _fundingPhaseBlockLength;
-        runningPhaseBlockLength = _runningPhaseBlockLength;
-        postFundingPhaseBlockLength = _postFundingPhaseBlockLength;
     }
 
     function _captureRunBlock() internal {
       runBlock = block.number;
+    }
+
+    function _setFundingPhaseBlockLength(uint256 _fundingPhaseBlockLength) internal {
+      fundingPhaseBlockLength = _fundingPhaseBlockLength;
+    }
+
+    function _setRunningPhaseBlockLength(uint256 _runningPhaseBlockLength) internal {
+      runningPhaseBlockLength = _runningPhaseBlockLength;
+    }
+
+    function _setPostFundingPhaseBlockLength(uint256 _postFundingPhaseBlockLength) internal {
+        require(
+            _postFundingPhaseBlockLength < runningPhaseBlockLength,
+            "post_funding_exceeds_runtime"
+        );
+      postFundingPhaseBlockLength = _postFundingPhaseBlockLength;
     }
 
 }

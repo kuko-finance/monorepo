@@ -1,0 +1,2063 @@
+{
+  "contractName": "IKukoYieldProviderV1",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getInputTokens",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getYieldTokens",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOutputTokens",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getInputTokens\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOutputTokens\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getYieldTokens\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/yield/IKukoYieldProviderV1.sol\":\"IKukoYieldProviderV1\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/yield/IKukoYieldProviderV1.sol\":{\"keccak256\":\"0xe13c7e703ee8885a5b414f8204a356660550ee99f5db1e3808e8bd44f67155ad\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5a07e2a16f0fc56ce3b01d519e984c657ab99d537fb5e64f69809ca09c2e02c7\",\"dweb:/ipfs/QmQ1jf7buppvNS5bQVdBRDBWbEQo8XE8idTHHVxXryYAEx\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.6.0 <0.8.0;\n\nabstract contract IKukoYieldProviderV1 {\n\n      address[] internal inputTokens;\n      address[] internal yieldTokens;\n      address[] internal outputTokens;\n\n    function _addInputToken(address _inputToken) internal {\n      inputTokens.push(_inputToken);\n    }\n\n    function _addYieldToken(address _yieldToken) internal {\n      yieldTokens.push(_yieldToken);\n    }\n\n    function _addOutputToken(address _outputToken) internal {\n      yieldTokens.push(_outputToken);\n    }\n\n    /// @notice This method stakes all balance of the currency used by the TBD.\n    /// @dev Heavy in gas fees as requires several actions most of the time.\n    function invest() internal virtual;\n\n    /// @notice This method retrieves all stakes benefits to the original currency used by the TBD.\n    /// @dev Heavy in gas fees as requires several actions most of the time.\n    function retrieve() internal virtual;\n\n    function getInputTokens() public view returns (address[] memory) {\n      return inputTokens;\n    }\n\n    function getYieldTokens() public view returns (address[] memory) {\nreturn yieldTokens;\n    }\n\n    function getOutputTokens() public view returns (address[] memory) {\n      return outputTokens;\n    }\n}\n",
+  "sourcePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/yield/IKukoYieldProviderV1.sol",
+  "ast": {
+    "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/yield/IKukoYieldProviderV1.sol",
+    "exportedSymbols": {
+      "IKukoYieldProviderV1": [
+        899
+      ]
+    },
+    "id": 900,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 818,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.6",
+          ".0",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:31:11"
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 899,
+        "linearizedBaseContracts": [
+          899
+        ],
+        "name": "IKukoYieldProviderV1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 821,
+            "mutability": "mutable",
+            "name": "inputTokens",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 899,
+            "src": "113:30:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$dyn_storage",
+              "typeString": "address[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 819,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "113:7:11",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "id": 820,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "113:9:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                "typeString": "address[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 824,
+            "mutability": "mutable",
+            "name": "yieldTokens",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 899,
+            "src": "151:30:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$dyn_storage",
+              "typeString": "address[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 822,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "151:7:11",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "id": 823,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "151:9:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                "typeString": "address[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 827,
+            "mutability": "mutable",
+            "name": "outputTokens",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 899,
+            "src": "189:31:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$dyn_storage",
+              "typeString": "address[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 825,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "189:7:11",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "id": 826,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "189:9:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                "typeString": "address[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 838,
+              "nodeType": "Block",
+              "src": "281:44:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 835,
+                        "name": "_inputToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 829,
+                        "src": "306:11:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 832,
+                        "name": "inputTokens",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 821,
+                        "src": "289:11:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 834,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "289:16:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 836,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "289:29:11",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 837,
+                  "nodeType": "ExpressionStatement",
+                  "src": "289:29:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 839,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_addInputToken",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 830,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 829,
+                  "mutability": "mutable",
+                  "name": "_inputToken",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 839,
+                  "src": "251:19:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 828,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "250:21:11"
+            },
+            "returnParameters": {
+              "id": 831,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "281:0:11"
+            },
+            "scope": 899,
+            "src": "227:98:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 850,
+              "nodeType": "Block",
+              "src": "385:44:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 847,
+                        "name": "_yieldToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 841,
+                        "src": "410:11:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 844,
+                        "name": "yieldTokens",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 824,
+                        "src": "393:11:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 846,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "393:16:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 848,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "393:29:11",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 849,
+                  "nodeType": "ExpressionStatement",
+                  "src": "393:29:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 851,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_addYieldToken",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 842,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 841,
+                  "mutability": "mutable",
+                  "name": "_yieldToken",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 851,
+                  "src": "355:19:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 840,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "355:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "354:21:11"
+            },
+            "returnParameters": {
+              "id": 843,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "385:0:11"
+            },
+            "scope": 899,
+            "src": "331:98:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 862,
+              "nodeType": "Block",
+              "src": "491:45:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 859,
+                        "name": "_outputToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 853,
+                        "src": "516:12:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 856,
+                        "name": "yieldTokens",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 824,
+                        "src": "499:11:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 858,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "499:16:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 860,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "499:30:11",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 861,
+                  "nodeType": "ExpressionStatement",
+                  "src": "499:30:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 863,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_addOutputToken",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 854,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 853,
+                  "mutability": "mutable",
+                  "name": "_outputToken",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 863,
+                  "src": "460:20:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 852,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "460:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "459:22:11"
+            },
+            "returnParameters": {
+              "id": 855,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "491:0:11"
+            },
+            "scope": 899,
+            "src": "435:101:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": null,
+            "documentation": {
+              "id": 864,
+              "nodeType": "StructuredDocumentation",
+              "src": "542:152:11",
+              "text": "@notice This method stakes all balance of the currency used by the TBD.\n @dev Heavy in gas fees as requires several actions most of the time."
+            },
+            "id": 867,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "invest",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 865,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "714:2:11"
+            },
+            "returnParameters": {
+              "id": 866,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "733:0:11"
+            },
+            "scope": 899,
+            "src": "699:35:11",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "body": null,
+            "documentation": {
+              "id": 868,
+              "nodeType": "StructuredDocumentation",
+              "src": "740:172:11",
+              "text": "@notice This method retrieves all stakes benefits to the original currency used by the TBD.\n @dev Heavy in gas fees as requires several actions most of the time."
+            },
+            "id": 871,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "retrieve",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 869,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "934:2:11"
+            },
+            "returnParameters": {
+              "id": 870,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "953:0:11"
+            },
+            "scope": 899,
+            "src": "917:37:11",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 879,
+              "nodeType": "Block",
+              "src": "1025:33:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 877,
+                    "name": "inputTokens",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 821,
+                    "src": "1040:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                      "typeString": "address[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 876,
+                  "id": 878,
+                  "nodeType": "Return",
+                  "src": "1033:18:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "db11e472",
+            "id": 880,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getInputTokens",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 872,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "983:2:11"
+            },
+            "returnParameters": {
+              "id": 876,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 875,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 880,
+                  "src": "1007:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 873,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1007:7:11",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 874,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1007:9:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1006:18:11"
+            },
+            "scope": 899,
+            "src": "960:98:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 888,
+              "nodeType": "Block",
+              "src": "1129:27:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 886,
+                    "name": "yieldTokens",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 824,
+                    "src": "1138:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                      "typeString": "address[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 885,
+                  "id": 887,
+                  "nodeType": "Return",
+                  "src": "1131:18:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "709df63c",
+            "id": 889,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getYieldTokens",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 881,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1087:2:11"
+            },
+            "returnParameters": {
+              "id": 885,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 884,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 889,
+                  "src": "1111:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 882,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1111:7:11",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 883,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1111:9:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1110:18:11"
+            },
+            "scope": 899,
+            "src": "1064:92:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 897,
+              "nodeType": "Block",
+              "src": "1228:34:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 895,
+                    "name": "outputTokens",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 827,
+                    "src": "1243:12:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                      "typeString": "address[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 894,
+                  "id": 896,
+                  "nodeType": "Return",
+                  "src": "1236:19:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "454dcb45",
+            "id": 898,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getOutputTokens",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 890,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1186:2:11"
+            },
+            "returnParameters": {
+              "id": 894,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 893,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 898,
+                  "src": "1210:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 891,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1210:7:11",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 892,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1210:9:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1209:18:11"
+            },
+            "scope": 899,
+            "src": "1162:100:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 900,
+        "src": "65:1199:11"
+      }
+    ],
+    "src": "32:1233:11"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/yield/IKukoYieldProviderV1.sol",
+      "exportedSymbols": {
+        "IKukoYieldProviderV1": [
+          899
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.6",
+            ".0",
+            "<",
+            "0.8",
+            ".0"
+          ]
+        },
+        "id": 818,
+        "name": "PragmaDirective",
+        "src": "32:31:11"
+      },
+      {
+        "attributes": {
+          "abstract": true,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            899
+          ],
+          "name": "IKukoYieldProviderV1",
+          "scope": 900
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "inputTokens",
+              "overrides": null,
+              "scope": 899,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address[]",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "address[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 819,
+                    "name": "ElementaryTypeName",
+                    "src": "113:7:11"
+                  }
+                ],
+                "id": 820,
+                "name": "ArrayTypeName",
+                "src": "113:9:11"
+              }
+            ],
+            "id": 821,
+            "name": "VariableDeclaration",
+            "src": "113:30:11"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "yieldTokens",
+              "overrides": null,
+              "scope": 899,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address[]",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "address[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 822,
+                    "name": "ElementaryTypeName",
+                    "src": "151:7:11"
+                  }
+                ],
+                "id": 823,
+                "name": "ArrayTypeName",
+                "src": "151:9:11"
+              }
+            ],
+            "id": 824,
+            "name": "VariableDeclaration",
+            "src": "151:30:11"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "outputTokens",
+              "overrides": null,
+              "scope": 899,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address[]",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "address[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 825,
+                    "name": "ElementaryTypeName",
+                    "src": "189:7:11"
+                  }
+                ],
+                "id": 826,
+                "name": "ArrayTypeName",
+                "src": "189:9:11"
+              }
+            ],
+            "id": 827,
+            "name": "VariableDeclaration",
+            "src": "189:31:11"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_addInputToken",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_inputToken",
+                      "overrides": null,
+                      "scope": 839,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 828,
+                        "name": "ElementaryTypeName",
+                        "src": "251:7:11"
+                      }
+                    ],
+                    "id": 829,
+                    "name": "VariableDeclaration",
+                    "src": "251:19:11"
+                  }
+                ],
+                "id": 830,
+                "name": "ParameterList",
+                "src": "250:21:11"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 831,
+                "name": "ParameterList",
+                "src": "281:0:11"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 821,
+                                  "type": "address[] storage ref",
+                                  "value": "inputTokens"
+                                },
+                                "id": 832,
+                                "name": "Identifier",
+                                "src": "289:11:11"
+                              }
+                            ],
+                            "id": 834,
+                            "name": "MemberAccess",
+                            "src": "289:16:11"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 829,
+                              "type": "address",
+                              "value": "_inputToken"
+                            },
+                            "id": 835,
+                            "name": "Identifier",
+                            "src": "306:11:11"
+                          }
+                        ],
+                        "id": 836,
+                        "name": "FunctionCall",
+                        "src": "289:29:11"
+                      }
+                    ],
+                    "id": 837,
+                    "name": "ExpressionStatement",
+                    "src": "289:29:11"
+                  }
+                ],
+                "id": 838,
+                "name": "Block",
+                "src": "281:44:11"
+              }
+            ],
+            "id": 839,
+            "name": "FunctionDefinition",
+            "src": "227:98:11"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_addYieldToken",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_yieldToken",
+                      "overrides": null,
+                      "scope": 851,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 840,
+                        "name": "ElementaryTypeName",
+                        "src": "355:7:11"
+                      }
+                    ],
+                    "id": 841,
+                    "name": "VariableDeclaration",
+                    "src": "355:19:11"
+                  }
+                ],
+                "id": 842,
+                "name": "ParameterList",
+                "src": "354:21:11"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 843,
+                "name": "ParameterList",
+                "src": "385:0:11"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 824,
+                                  "type": "address[] storage ref",
+                                  "value": "yieldTokens"
+                                },
+                                "id": 844,
+                                "name": "Identifier",
+                                "src": "393:11:11"
+                              }
+                            ],
+                            "id": 846,
+                            "name": "MemberAccess",
+                            "src": "393:16:11"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 841,
+                              "type": "address",
+                              "value": "_yieldToken"
+                            },
+                            "id": 847,
+                            "name": "Identifier",
+                            "src": "410:11:11"
+                          }
+                        ],
+                        "id": 848,
+                        "name": "FunctionCall",
+                        "src": "393:29:11"
+                      }
+                    ],
+                    "id": 849,
+                    "name": "ExpressionStatement",
+                    "src": "393:29:11"
+                  }
+                ],
+                "id": 850,
+                "name": "Block",
+                "src": "385:44:11"
+              }
+            ],
+            "id": 851,
+            "name": "FunctionDefinition",
+            "src": "331:98:11"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_addOutputToken",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_outputToken",
+                      "overrides": null,
+                      "scope": 863,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 852,
+                        "name": "ElementaryTypeName",
+                        "src": "460:7:11"
+                      }
+                    ],
+                    "id": 853,
+                    "name": "VariableDeclaration",
+                    "src": "460:20:11"
+                  }
+                ],
+                "id": 854,
+                "name": "ParameterList",
+                "src": "459:22:11"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 855,
+                "name": "ParameterList",
+                "src": "491:0:11"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 824,
+                                  "type": "address[] storage ref",
+                                  "value": "yieldTokens"
+                                },
+                                "id": 856,
+                                "name": "Identifier",
+                                "src": "499:11:11"
+                              }
+                            ],
+                            "id": 858,
+                            "name": "MemberAccess",
+                            "src": "499:16:11"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 853,
+                              "type": "address",
+                              "value": "_outputToken"
+                            },
+                            "id": 859,
+                            "name": "Identifier",
+                            "src": "516:12:11"
+                          }
+                        ],
+                        "id": 860,
+                        "name": "FunctionCall",
+                        "src": "499:30:11"
+                      }
+                    ],
+                    "id": 861,
+                    "name": "ExpressionStatement",
+                    "src": "499:30:11"
+                  }
+                ],
+                "id": 862,
+                "name": "Block",
+                "src": "491:45:11"
+              }
+            ],
+            "id": 863,
+            "name": "FunctionDefinition",
+            "src": "435:101:11"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "invest",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "nonpayable",
+              "virtual": true,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": "@notice This method stakes all balance of the currency used by the TBD.\n @dev Heavy in gas fees as requires several actions most of the time."
+                },
+                "id": 864,
+                "name": "StructuredDocumentation",
+                "src": "542:152:11"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 865,
+                "name": "ParameterList",
+                "src": "714:2:11"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 866,
+                "name": "ParameterList",
+                "src": "733:0:11"
+              }
+            ],
+            "id": 867,
+            "name": "FunctionDefinition",
+            "src": "699:35:11"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "retrieve",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "nonpayable",
+              "virtual": true,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": "@notice This method retrieves all stakes benefits to the original currency used by the TBD.\n @dev Heavy in gas fees as requires several actions most of the time."
+                },
+                "id": 868,
+                "name": "StructuredDocumentation",
+                "src": "740:172:11"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 869,
+                "name": "ParameterList",
+                "src": "934:2:11"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 870,
+                "name": "ParameterList",
+                "src": "953:0:11"
+              }
+            ],
+            "id": 871,
+            "name": "FunctionDefinition",
+            "src": "917:37:11"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "db11e472",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getInputTokens",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 872,
+                "name": "ParameterList",
+                "src": "983:2:11"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 880,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "address[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "address[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "address",
+                              "stateMutability": "nonpayable",
+                              "type": "address"
+                            },
+                            "id": 873,
+                            "name": "ElementaryTypeName",
+                            "src": "1007:7:11"
+                          }
+                        ],
+                        "id": 874,
+                        "name": "ArrayTypeName",
+                        "src": "1007:9:11"
+                      }
+                    ],
+                    "id": 875,
+                    "name": "VariableDeclaration",
+                    "src": "1007:16:11"
+                  }
+                ],
+                "id": 876,
+                "name": "ParameterList",
+                "src": "1006:18:11"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 876
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 821,
+                          "type": "address[] storage ref",
+                          "value": "inputTokens"
+                        },
+                        "id": 877,
+                        "name": "Identifier",
+                        "src": "1040:11:11"
+                      }
+                    ],
+                    "id": 878,
+                    "name": "Return",
+                    "src": "1033:18:11"
+                  }
+                ],
+                "id": 879,
+                "name": "Block",
+                "src": "1025:33:11"
+              }
+            ],
+            "id": 880,
+            "name": "FunctionDefinition",
+            "src": "960:98:11"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "709df63c",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getYieldTokens",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 881,
+                "name": "ParameterList",
+                "src": "1087:2:11"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 889,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "address[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "address[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "address",
+                              "stateMutability": "nonpayable",
+                              "type": "address"
+                            },
+                            "id": 882,
+                            "name": "ElementaryTypeName",
+                            "src": "1111:7:11"
+                          }
+                        ],
+                        "id": 883,
+                        "name": "ArrayTypeName",
+                        "src": "1111:9:11"
+                      }
+                    ],
+                    "id": 884,
+                    "name": "VariableDeclaration",
+                    "src": "1111:16:11"
+                  }
+                ],
+                "id": 885,
+                "name": "ParameterList",
+                "src": "1110:18:11"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 885
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 824,
+                          "type": "address[] storage ref",
+                          "value": "yieldTokens"
+                        },
+                        "id": 886,
+                        "name": "Identifier",
+                        "src": "1138:11:11"
+                      }
+                    ],
+                    "id": 887,
+                    "name": "Return",
+                    "src": "1131:18:11"
+                  }
+                ],
+                "id": 888,
+                "name": "Block",
+                "src": "1129:27:11"
+              }
+            ],
+            "id": 889,
+            "name": "FunctionDefinition",
+            "src": "1064:92:11"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "454dcb45",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getOutputTokens",
+              "overrides": null,
+              "scope": 899,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 890,
+                "name": "ParameterList",
+                "src": "1186:2:11"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 898,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "address[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "address[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "address",
+                              "stateMutability": "nonpayable",
+                              "type": "address"
+                            },
+                            "id": 891,
+                            "name": "ElementaryTypeName",
+                            "src": "1210:7:11"
+                          }
+                        ],
+                        "id": 892,
+                        "name": "ArrayTypeName",
+                        "src": "1210:9:11"
+                      }
+                    ],
+                    "id": 893,
+                    "name": "VariableDeclaration",
+                    "src": "1210:16:11"
+                  }
+                ],
+                "id": 894,
+                "name": "ParameterList",
+                "src": "1209:18:11"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 894
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 827,
+                          "type": "address[] storage ref",
+                          "value": "outputTokens"
+                        },
+                        "id": 895,
+                        "name": "Identifier",
+                        "src": "1243:12:11"
+                      }
+                    ],
+                    "id": 896,
+                    "name": "Return",
+                    "src": "1236:19:11"
+                  }
+                ],
+                "id": 897,
+                "name": "Block",
+                "src": "1228:34:11"
+              }
+            ],
+            "id": 898,
+            "name": "FunctionDefinition",
+            "src": "1162:100:11"
+          }
+        ],
+        "id": 899,
+        "name": "ContractDefinition",
+        "src": "65:1199:11"
+      }
+    ],
+    "id": 900,
+    "name": "SourceUnit",
+    "src": "32:1233:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-02-02T21:37:30.589Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

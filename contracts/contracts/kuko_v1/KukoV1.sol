@@ -14,9 +14,6 @@ import "./KukoreV1.sol";
 import "./KukoStatusV1.sol";
 
 abstract contract KukoV1 is KukoActorsV1, KukoBlocksV1, KukoreV1, KukoStatusV1, ERC1155 {
-    uint256 public loserSafetyBelt;
-
-
     string public name;
 
     IERC20 public token;
@@ -24,38 +21,18 @@ abstract contract KukoV1 is KukoActorsV1, KukoBlocksV1, KukoreV1, KukoStatusV1, 
     mapping(uint256 => uint256) internal optionIds;
 
     constructor(
-        string memory _name,
-        address _owner,
-        address _launcher,
-        uint256 _ownerShare,
-        uint256 _launcherShare,
-        uint256 _runnerShare,
-        uint256 _closerShare,
-        uint256 _fundingPhaseBlockLength,
-        uint256 _runningPhaseBlockLength,
-        uint256 _postFundingPhaseBlockLength,
-        uint256 _loserSafetyBelt
+        string memory _uri
     )
         internal
-        ERC1155("https://letoken.fi/{id}.json")
-        KukoActorsV1(
-            _owner,
-            _ownerShare,
-            _launcherShare,
-            _runnerShare,
-            _closerShare
-        )
-        KukoBlocksV1(
-        _fundingPhaseBlockLength,
-        _runningPhaseBlockLength,
-        _postFundingPhaseBlockLength
-        )
-    {
-        require(_loserSafetyBelt < 1000000, "loser_safety_belt_share_too_high");
+        ERC1155(_uri)
+    {}
 
-        name = _name;
-        loserSafetyBelt = _loserSafetyBelt;
-        _setLauncher(_launcher);
+    function _setToken(address _token) internal {
+      token = IERC20(_token);
+    }
+
+    function _setName(string memory _name) internal {
+      name = _name;
     }
 
     function start() public {
