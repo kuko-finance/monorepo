@@ -87,15 +87,13 @@ export function App() {
   useEffect(() => {
     if (!enrolled && valid && clicked) {
       fetch('https://waitlist.kuko.finance/api?mail=' + email)
-      .then((res) => {
-        setClicked(false);
-        if (res.status !== 200) {
-          setEnrolled(false);
-          setError(true);
-        } else {
+        .then((res) => {
+          setClicked(false);
           setEnrolled(true)
-        }
-      })
+          if (res.status !== 200) {
+            setError(true);
+          }
+        })
     }
   }, [enrolled, email, valid, clicked]);
 
@@ -111,10 +109,13 @@ export function App() {
       {
         enrolled
           ?
-          <KukoDesc>Thank you !</KukoDesc>
+          (error
+            ? <KukoDesc>An error occured ! You might already be enrolled. If not, try again in a few moments.</KukoDesc>
+            : <KukoDesc>Thank you !</KukoDesc>
+          )
           :
           <KukoButton
-          onClick={() => setClicked(true)}
+            onClick={() => setClicked(true)}
             style={{
               opacity: valid ? '1' : '0'
             }}
