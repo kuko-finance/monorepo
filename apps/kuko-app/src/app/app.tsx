@@ -21,6 +21,7 @@ const Kuko = styled.span`
 const KukoDesc = styled.p`
   margin: 30px;
   width: 500px;
+  max-width: 80%;
   text-align: center;
   font-family: 'Roboto';
   font-size: 20px;
@@ -39,6 +40,7 @@ const KukoMailInput = styled.input`
   font-family: 'Roboto';
   padding: 8px;
   margin: 30px;
+  max-width: 80%;
 `
 
 const KukoButton = styled.div`
