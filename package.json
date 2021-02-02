@@ -36,6 +36,7 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "is-valid-email": "0.0.5",
     "@babel/core": "7.9.6",
     "@babel/preset-env": "7.9.6",
     "@babel/preset-react": "7.9.4",
