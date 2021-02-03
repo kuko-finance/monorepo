@@ -13,43 +13,43 @@ import "./KukoBlocksV1.sol";
 import "./KukoreV1.sol";
 import "./KukoStatusV1.sol";
 
-abstract contract KukoV1 is KukoActorsV1, KukoBlocksV1, KukoreV1, KukoStatusV1, ERC1155 {
+abstract contract KukoV1 is
+    KukoActorsV1,
+    KukoBlocksV1,
+    KukoreV1,
+    KukoStatusV1,
+    ERC1155
+{
     string public name;
 
     IERC20 public token;
     KukoOptionV1[] internal options;
     mapping(uint256 => uint256) internal optionIds;
 
-    constructor(
-        string memory _uri
-    )
-        internal
-        ERC1155(_uri)
-    {}
+    constructor(string memory _uri) internal ERC1155(_uri) {}
 
     function _setToken(address _token) internal {
-      token = IERC20(_token);
+        token = IERC20(_token);
     }
 
     function _setName(string memory _name) internal {
-      name = _name;
+        name = _name;
     }
 
-    function start() public {
-      _setStart(true);
-      _setRunner(msg.sender);
-      _captureRunBlock();
-      // This call should take all funds and start staking
-      _onStart();
+    function start() public isNotStarted {
+        _setStart(true);
+        _setRunner(msg.sender);
+        _captureRunBlock();
+        // This call should take all funds and start staking
+        _onStart();
     }
 
-    function close() public {
-      _setCloser(msg.sender);
-      _setClose(true);
-      // This call should retrieve all funds
-      _onClose();
+    function close() public isStarted isNotClosed isClosable {
+        _setCloser(msg.sender);
+        _setClose(true);
+        // This call should retrieve all funds
+        _onClose();
     }
-
 
     function cancel() public ownerOnly {
         _setCancel(true);

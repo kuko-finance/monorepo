@@ -22,43 +22,42 @@ abstract contract KukoActorsV1 {
 
     function _setOwnerShare(uint256 _ownerShare) internal {
         require(_ownerShare < 1000000, "owner_share_too_high");
-      ownerShare = _ownerShare;
+        ownerShare = _ownerShare;
     }
 
     function _setLauncherShare(uint256 _launcherShare) internal {
         require(_launcherShare < 1000000, "launcher_share_too_high");
-      launcherShare = _launcherShare;
+        launcherShare = _launcherShare;
     }
 
     function _setRunnerShare(uint256 _runnerShare) internal {
         require(_runnerShare < 1000000, "runner_share_too_high");
-      runnerShare = _runnerShare;
+        runnerShare = _runnerShare;
     }
 
     function _setCloserShare(uint256 _closerShare) internal {
         require(_closerShare < 1000000, "closer_share_too_high");
-      closerShare = _closerShare;
+        closerShare = _closerShare;
     }
 
     function _setLoserShare(uint256 _loserShare) internal {
         require(_loserShare < 1000000, "loser_share_too_high");
-      closerShare = _loserShare;
+        closerShare = _loserShare;
     }
 
     function _setOwner(address _owner) internal {
-      owner = _owner;
+        owner = _owner;
     }
 
     function _setLauncher(address _launcher) internal {
-      launcher = _launcher;
+        launcher = _launcher;
     }
 
     function _setRunner(address _runner) internal {
-      runner = _runner;
+        runner = _runner;
     }
 
     function _setCloser(address _closer) internal {
-      closer = _closer;
+        closer = _closer;
     }
 }
-

@@ -18,18 +18,13 @@ contract KukoEthPrice10000BlocksDaiHF is yDaiYieldProvider, KukoV1 {
     ///@notice Hi test
     ///@param name Name of the contract
     constructor(
-      string memory name,
-      address inputToken,
-      address vaultAddress
-      )
+        string memory name,
+        address inputToken,
+        address vaultAddress
+    )
         public
-        yDaiYieldProvider(
-          inputToken,
-          vaultAddress
-        )
-        KukoV1(
-          "https://uri.com"
-        )
+        yDaiYieldProvider(inputToken, vaultAddress)
+        KukoV1("https://uri.com")
     {
         _setName(name);
 
@@ -47,24 +42,31 @@ contract KukoEthPrice10000BlocksDaiHF is yDaiYieldProvider, KukoV1 {
         _setPostFundingPhaseBlockLength(180000);
 
         _setToken(inputToken);
-
     }
 
     function _onStart() internal override {
-
+        // invest all balance
     }
 
     function _onClose() internal override {
-
+        // sell everything back to input token
+        // resolve all options
     }
 
-    function deposit(uint256 amount) public override {
-
+    function deposit(uint256 amount) external override {
+        // if not started, just store investment amount
+        // else invest directly
     }
 
-    function withdraw(uint256 amount) public override {
+    function withdraw(uint256 amount) external override {}
 
-    }
+    function depositOf(address owner) external override returns (uint256) {}
+
+    function sharesOf(address owner) external override returns (uint256) {}
+
+    function totalDeposit() external override returns (uint256) {}
+
+    function totalFunds() external override returns (uint256);
 
     // How to you list outputs in a generic manner
 }

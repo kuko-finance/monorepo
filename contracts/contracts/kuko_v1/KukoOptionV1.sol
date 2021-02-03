@@ -10,4 +10,3 @@ struct KukoOptionV1 {
     int8 finalized;
     uint256 shares;
 }
-
