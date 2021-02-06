@@ -2,18 +2,12 @@
 pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
-import "./KukoV1.sol";
+import "./KukoOptionsV1.sol";
 
 abstract contract KukoOptionsManagerV1 {
-    function initialize(uint256 optionCount)
-        internal
-        virtual
-        returns (KukoOptionV1[] memory);
+    function _initialize(uint256 optionCount) internal virtual returns (KukoOptionV1[] memory);
 
-    function getOptionIds() internal virtual returns (uint256[] memory);
+    function _isManager(uint256 id) internal view virtual returns (bool);
 
-    function resolve(KukoOptionV1 memory option)
-        internal
-        virtual
-        returns (int8);
+    function _resolve(KukoOptionV1 memory option) internal virtual returns (int8);
 }

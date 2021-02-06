@@ -27,7 +27,7 @@ abstract contract KukoYieldManagerV1 {
     function _retrieve() internal virtual;
 
     // Count of all investments in current input token value
-    function _totalFunds() internal virtual returns (uint256);
+    function _totalFunds() internal view virtual returns (uint256);
 
     function getInputToken() external view returns (address) {
         return inputToken;

@@ -17,10 +17,6 @@ contract UniswapETHDAIPoolMock is ERC20("DAI", "DAI") {
             uint32 _blockTimestampLast
         )
     {
-        return (
-            1000000000 + uint112((block.number - initBlock) * 1000),
-            1000000,
-            0
-        );
+        return (1000000000 + uint112((block.number - initBlock) * 1000), 1000000, 0);
     }
 }

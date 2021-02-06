@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@harvestfinance/contracts": "harvest-finance/harvest#master",
+    "@iearn-finance/yearn-protocol": "iearn-finance/yearn-protocol#master",
+    "@uniswap/uniswap-v2-core": "uniswap/uniswap-v2-core#master",
     "@openzeppelin/contracts": "3.3.0",
     "ganache": "6.4.4",
     "ganache-cli": "6.12.2",
@@ -18,7 +20,8 @@
     "prettier-plugin-solidity": "1.0.0-beta.3",
     "solhint": "3.3.2",
     "solidity-coverage": "0.7.14",
-    "truffle": "5.1.63"
+    "truffle": "5.1.63",
+    "@digix/tempo": "0.2.0"
   },
   "repository": {
     "type": "git",

@@ -14,10 +14,12 @@ abstract contract KukoBlocksV1 {
     }
 
     modifier isClosable() {
-        require(
-            block.number >= runBlock + runningPhaseBlockLength,
-            "cannot_close_contract"
-        );
+        require(block.number >= runBlock + runningPhaseBlockLength, "cannot_close_contract");
+        _;
+    }
+
+    modifier isDepositable() {
+        require(block.number < runBlock + postFundingPhaseBlockLength, "cannot_fund_contract");
         _;
     }
 
@@ -25,25 +27,16 @@ abstract contract KukoBlocksV1 {
         runBlock = block.number;
     }
 
-    function _setFundingPhaseBlockLength(uint256 _fundingPhaseBlockLength)
-        internal
-    {
+    function _setFundingPhaseBlockLength(uint256 _fundingPhaseBlockLength) internal {
         fundingPhaseBlockLength = _fundingPhaseBlockLength;
     }
 
-    function _setRunningPhaseBlockLength(uint256 _runningPhaseBlockLength)
-        internal
-    {
+    function _setRunningPhaseBlockLength(uint256 _runningPhaseBlockLength) internal {
         runningPhaseBlockLength = _runningPhaseBlockLength;
     }
 
-    function _setPostFundingPhaseBlockLength(
-        uint256 _postFundingPhaseBlockLength
-    ) internal {
-        require(
-            _postFundingPhaseBlockLength < runningPhaseBlockLength,
-            "post_funding_exceeds_runtime"
-        );
+    function _setPostFundingPhaseBlockLength(uint256 _postFundingPhaseBlockLength) internal {
+        require(_postFundingPhaseBlockLength < runningPhaseBlockLength, "post_funding_exceeds_runtime");
         postFundingPhaseBlockLength = _postFundingPhaseBlockLength;
     }
 }
