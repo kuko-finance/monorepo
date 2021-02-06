@@ -1,15 +1,26 @@
 // SPDX-License-Identifier: MIT
+//   ___  __    ___  ___  ___  __    ________
+//  |\  \|\  \ |\  \|\  \|\  \|\  \ |\   __  \
+//  \ \  \/  /|\ \  \\\  \ \  \/  /|\ \  \|\  \
+//   \ \   ___  \ \  \\\  \ \   ___  \ \  \\\  \
+//    \ \  \\ \  \ \  \\\  \ \  \\ \  \ \  \\\  \
+//     \ \__\\ \__\ \_______\ \__\\ \__\ \_______\
+//      \|__| \|__|\|_______|\|__| \|__|\|_______|
+//
 pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
-abstract contract KukoBlocksV1 {
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
+
+abstract contract KukoBlocksV1 is Initializable {
     uint256 public startBlock;
     uint256 public runBlock;
     uint256 public fundingPhaseBlockLength;
     uint256 public runningPhaseBlockLength;
     uint256 public postFundingPhaseBlockLength;
 
-    constructor() internal {
+    // solhint-disable-next-line
+    function __KukoBlocksV1__init() internal initializer {
         startBlock = block.number;
     }
 

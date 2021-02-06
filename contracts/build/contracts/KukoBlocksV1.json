@@ -67,27 +67,27 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"fundingPhaseBlockLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"postFundingPhaseBlockLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"runBlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"runningPhaseBlockLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"startBlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoBlocksV1.sol\":\"KukoBlocksV1\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoBlocksV1.sol\":{\"keccak256\":\"0xb91050b303b1011ba1876c18fc3af2150a5cfa70806fb4bdf3ff0ec96373d104\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://097b28c95a769d60cf09feead3a5dc4c322214581d96c23fe52444cd851db76c\",\"dweb:/ipfs/Qme6P5AaSa9N3uzKs1GzG6FjZ47DfVzDHZ3TXztasfz2vo\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"fundingPhaseBlockLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"postFundingPhaseBlockLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"runBlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"runningPhaseBlockLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"startBlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoBlocksV1.sol\":\"KukoBlocksV1\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoBlocksV1.sol\":{\"keccak256\":\"0xa43666faf650fb2d8aec94c6a05fb45b16dbf56188152f7fd856cc3e685b9ed2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://da6d72ec6352221391050ddedb589e93c62b0c2cb8d2ff43bff138a8aae67659\",\"dweb:/ipfs/QmSKnXUkgcbG7AH9Yqw5ssbXsLFogLwTmfqDiFryvsH1d6\"]},\"@openzeppelin/contracts-upgradeable/proxy/Initializable.sol\":{\"keccak256\":\"0xd8e4eb08dcc1d1860fb347ba5ffd595242b9a1b66d49a47f2b4cb51c3f35017e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dbc89479d30592e82442edc38053b380f611037a5e6ceafc7bf57a7aa1f0305\",\"dweb:/ipfs/QmcdYtt56WmjeYvsFjK69FnahnAriw88VzY3XRZwXkQKKN\"]},\"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol\":{\"keccak256\":\"0xfc5ea91fa9ceb1961023b2a6c978b902888c52b90847ac7813fe3b79524165f6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a6b81dcc816857a9d981386f6d8de49198420ee41cdc0ecade366ab412174d03\",\"dweb:/ipfs/QmV2vznMT6m9qo3pFMAWi3Nz3UDhwesgwFxeXe6Tod3v8A\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.6.0 <0.8.0;\npragma experimental ABIEncoderV2;\n\nabstract contract KukoBlocksV1 {\n    uint256 public startBlock;\n    uint256 public runBlock;\n    uint256 public fundingPhaseBlockLength;\n    uint256 public runningPhaseBlockLength;\n    uint256 public postFundingPhaseBlockLength;\n\n    constructor() internal {\n        startBlock = block.number;\n    }\n\n    modifier isClosable() {\n        require(block.number >= runBlock + runningPhaseBlockLength, \"cannot_close_contract\");\n        _;\n    }\n\n    modifier isDepositable() {\n        require(block.number < runBlock + postFundingPhaseBlockLength, \"cannot_fund_contract\");\n        _;\n    }\n\n    function _captureRunBlock() internal {\n        runBlock = block.number;\n    }\n\n    function _setFundingPhaseBlockLength(uint256 _fundingPhaseBlockLength) internal {\n        fundingPhaseBlockLength = _fundingPhaseBlockLength;\n    }\n\n    function _setRunningPhaseBlockLength(uint256 _runningPhaseBlockLength) internal {\n        runningPhaseBlockLength = _runningPhaseBlockLength;\n    }\n\n    function _setPostFundingPhaseBlockLength(uint256 _postFundingPhaseBlockLength) internal {\n        require(_postFundingPhaseBlockLength < runningPhaseBlockLength, \"post_funding_exceeds_runtime\");\n        postFundingPhaseBlockLength = _postFundingPhaseBlockLength;\n    }\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\n//   ___  __    ___  ___  ___  __    ________\n//  |\\  \\|\\  \\ |\\  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\\n//  \\ \\  \\/  /|\\ \\  \\\\\\  \\ \\  \\/  /|\\ \\  \\|\\  \\\n//   \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\\\\\  \\\n//    \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\\n//     \\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\n//      \\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|\n//\npragma solidity >=0.6.0 <0.8.0;\npragma experimental ABIEncoderV2;\n\nimport \"@openzeppelin/contracts-upgradeable/proxy/Initializable.sol\";\n\nabstract contract KukoBlocksV1 is Initializable {\n    uint256 public startBlock;\n    uint256 public runBlock;\n    uint256 public fundingPhaseBlockLength;\n    uint256 public runningPhaseBlockLength;\n    uint256 public postFundingPhaseBlockLength;\n\n    // solhint-disable-next-line\n    function __KukoBlocksV1__init() internal initializer {\n      startBlock = block.number;\n    }\n\n    modifier isClosable() {\n        require(block.number >= runBlock + runningPhaseBlockLength, \"cannot_close_contract\");\n        _;\n    }\n\n    modifier isDepositable() {\n        require(block.number < runBlock + postFundingPhaseBlockLength, \"cannot_fund_contract\");\n        _;\n    }\n\n    function _captureRunBlock() internal {\n        runBlock = block.number;\n    }\n\n    function _setFundingPhaseBlockLength(uint256 _fundingPhaseBlockLength) internal {\n        fundingPhaseBlockLength = _fundingPhaseBlockLength;\n    }\n\n    function _setRunningPhaseBlockLength(uint256 _runningPhaseBlockLength) internal {\n        runningPhaseBlockLength = _runningPhaseBlockLength;\n    }\n\n    function _setPostFundingPhaseBlockLength(uint256 _postFundingPhaseBlockLength) internal {\n        require(_postFundingPhaseBlockLength < runningPhaseBlockLength, \"post_funding_exceeds_runtime\");\n        postFundingPhaseBlockLength = _postFundingPhaseBlockLength;\n    }\n}\n",
   "sourcePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoBlocksV1.sol",
   "ast": {
     "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoBlocksV1.sol",
     "exportedSymbols": {
       "KukoBlocksV1": [
-        1039
+        1077
       ]
     },
-    "id": 1040,
+    "id": 1078,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 944,
+        "id": 977,
         "literals": [
           "solidity",
           ">=",
@@ -98,27 +98,60 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:31:4"
+        "src": "377:31:5"
       },
       {
-        "id": 945,
+        "id": 978,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "64:33:4"
+        "src": "409:33:5"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+        "file": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+        "id": 979,
+        "nodeType": "ImportDirective",
+        "scope": 1078,
+        "sourceUnit": 2793,
+        "src": "444:69:5",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
         "abstract": true,
-        "baseContracts": [],
-        "contractDependencies": [],
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 980,
+              "name": "Initializable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2792,
+              "src": "549:13:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Initializable_$2792",
+                "typeString": "contract Initializable"
+              }
+            },
+            "id": 981,
+            "nodeType": "InheritanceSpecifier",
+            "src": "549:13:5"
+          }
+        ],
+        "contractDependencies": [
+          2792
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1039,
+        "id": 1077,
         "linearizedBaseContracts": [
-          1039
+          1077,
+          2792
         ],
         "name": "KukoBlocksV1",
         "nodeType": "ContractDefinition",
@@ -126,13 +159,13 @@
           {
             "constant": false,
             "functionSelector": "48cd4cb1",
-            "id": 947,
+            "id": 983,
             "mutability": "mutable",
             "name": "startBlock",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1039,
-            "src": "136:25:4",
+            "scope": 1077,
+            "src": "569:25:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -140,10 +173,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 946,
+              "id": 982,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "136:7:4",
+              "src": "569:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -155,13 +188,13 @@
           {
             "constant": false,
             "functionSelector": "3e7954f9",
-            "id": 949,
+            "id": 985,
             "mutability": "mutable",
             "name": "runBlock",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1039,
-            "src": "167:23:4",
+            "scope": 1077,
+            "src": "600:23:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -169,10 +202,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 948,
+              "id": 984,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "167:7:4",
+              "src": "600:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -184,13 +217,13 @@
           {
             "constant": false,
             "functionSelector": "33d94535",
-            "id": 951,
+            "id": 987,
             "mutability": "mutable",
             "name": "fundingPhaseBlockLength",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1039,
-            "src": "196:38:4",
+            "scope": 1077,
+            "src": "629:38:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -198,10 +231,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 950,
+              "id": 986,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "196:7:4",
+              "src": "629:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -213,13 +246,13 @@
           {
             "constant": false,
             "functionSelector": "89006dc0",
-            "id": 953,
+            "id": 989,
             "mutability": "mutable",
             "name": "runningPhaseBlockLength",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1039,
-            "src": "240:38:4",
+            "scope": 1077,
+            "src": "673:38:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -227,10 +260,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 952,
+              "id": 988,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "240:7:4",
+              "src": "673:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -242,13 +275,13 @@
           {
             "constant": false,
             "functionSelector": "b30e26f7",
-            "id": 955,
+            "id": 991,
             "mutability": "mutable",
             "name": "postFundingPhaseBlockLength",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1039,
-            "src": "284:42:4",
+            "scope": 1077,
+            "src": "717:42:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -256,10 +289,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 954,
+              "id": 990,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "284:7:4",
+              "src": "717:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -270,26 +303,26 @@
           },
           {
             "body": {
-              "id": 963,
+              "id": 1001,
               "nodeType": "Block",
-              "src": "356:42:4",
+              "src": "852:40:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 961,
+                    "id": 999,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 958,
+                      "id": 996,
                       "name": "startBlock",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 947,
-                      "src": "366:10:4",
+                      "referencedDeclaration": 983,
+                      "src": "860:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -301,18 +334,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 959,
+                        "id": 997,
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": -4,
-                        "src": "379:5:4",
+                        "src": "873:5:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_block",
                           "typeString": "block"
                         }
                       },
-                      "id": 960,
+                      "id": 998,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -320,55 +353,75 @@
                       "memberName": "number",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "379:12:4",
+                      "src": "873:12:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "366:25:4",
+                    "src": "860:25:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 962,
+                  "id": 1000,
                   "nodeType": "ExpressionStatement",
-                  "src": "366:25:4"
+                  "src": "860:25:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 964,
+            "id": 1002,
             "implemented": true,
-            "kind": "constructor",
-            "modifiers": [],
-            "name": "",
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 994,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 993,
+                  "name": "initializer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2775,
+                  "src": "840:11:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "840:11:5"
+              }
+            ],
+            "name": "__KukoBlocksV1__init",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 956,
+              "id": 992,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "344:2:4"
+              "src": "828:2:5"
             },
             "returnParameters": {
-              "id": 957,
+              "id": 995,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "356:0:4"
+              "src": "852:0:5"
             },
-            "scope": 1039,
-            "src": "333:65:4",
+            "scope": 1077,
+            "src": "799:93:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 977,
+              "id": 1015,
               "nodeType": "Block",
-              "src": "426:112:4",
+              "src": "920:112:5",
               "statements": [
                 {
                   "expression": {
@@ -380,7 +433,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 972,
+                        "id": 1010,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -389,18 +442,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 967,
+                            "id": 1005,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -4,
-                            "src": "444:5:4",
+                            "src": "938:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
                               "typeString": "block"
                             }
                           },
-                          "id": 968,
+                          "id": 1006,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -408,7 +461,7 @@
                           "memberName": "number",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "444:12:4",
+                          "src": "938:12:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -422,19 +475,19 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 971,
+                          "id": 1009,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 969,
+                            "id": 1007,
                             "name": "runBlock",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 949,
-                            "src": "460:8:4",
+                            "referencedDeclaration": 985,
+                            "src": "954:8:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -444,24 +497,24 @@
                           "operator": "+",
                           "rightExpression": {
                             "argumentTypes": null,
-                            "id": 970,
+                            "id": 1008,
                             "name": "runningPhaseBlockLength",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 953,
-                            "src": "471:23:4",
+                            "referencedDeclaration": 989,
+                            "src": "965:23:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "460:34:4",
+                          "src": "954:34:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "src": "444:50:4",
+                        "src": "938:50:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -470,14 +523,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "63616e6e6f745f636c6f73655f636f6e7472616374",
-                        "id": 973,
+                        "id": 1011,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "496:23:4",
+                        "src": "990:23:5",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_3336ff58ee504c1dc7b204ccfbb2469184b1eabe1f9ea377694a99812b9acaf3",
@@ -497,7 +550,7 @@
                           "typeString": "literal_string \"cannot_close_contract\""
                         }
                       ],
-                      "id": 966,
+                      "id": 1004,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -505,13 +558,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "436:7:4",
+                      "src": "930:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 974,
+                    "id": 1012,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -519,44 +572,44 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "436:84:4",
+                    "src": "930:84:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 975,
+                  "id": 1013,
                   "nodeType": "ExpressionStatement",
-                  "src": "436:84:4"
+                  "src": "930:84:5"
                 },
                 {
-                  "id": 976,
+                  "id": 1014,
                   "nodeType": "PlaceholderStatement",
-                  "src": "530:1:4"
+                  "src": "1024:1:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 978,
+            "id": 1016,
             "name": "isClosable",
             "nodeType": "ModifierDefinition",
             "overrides": null,
             "parameters": {
-              "id": 965,
+              "id": 1003,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "423:2:4"
+              "src": "917:2:5"
             },
-            "src": "404:134:4",
+            "src": "898:134:5",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 991,
+              "id": 1029,
               "nodeType": "Block",
-              "src": "569:114:4",
+              "src": "1063:114:5",
               "statements": [
                 {
                   "expression": {
@@ -568,7 +621,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 986,
+                        "id": 1024,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -577,18 +630,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 981,
+                            "id": 1019,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -4,
-                            "src": "587:5:4",
+                            "src": "1081:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
                               "typeString": "block"
                             }
                           },
-                          "id": 982,
+                          "id": 1020,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -596,7 +649,7 @@
                           "memberName": "number",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "587:12:4",
+                          "src": "1081:12:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -610,19 +663,19 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 985,
+                          "id": 1023,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 983,
+                            "id": 1021,
                             "name": "runBlock",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 949,
-                            "src": "602:8:4",
+                            "referencedDeclaration": 985,
+                            "src": "1096:8:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -632,24 +685,24 @@
                           "operator": "+",
                           "rightExpression": {
                             "argumentTypes": null,
-                            "id": 984,
+                            "id": 1022,
                             "name": "postFundingPhaseBlockLength",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 955,
-                            "src": "613:27:4",
+                            "referencedDeclaration": 991,
+                            "src": "1107:27:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "602:38:4",
+                          "src": "1096:38:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "src": "587:53:4",
+                        "src": "1081:53:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -658,14 +711,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "63616e6e6f745f66756e645f636f6e7472616374",
-                        "id": 987,
+                        "id": 1025,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "642:22:4",
+                        "src": "1136:22:5",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_1b2bce4e91eb5da395374125cea244904af5bbf345ae5a126c320aa0807b5a66",
@@ -685,7 +738,7 @@
                           "typeString": "literal_string \"cannot_fund_contract\""
                         }
                       ],
-                      "id": 980,
+                      "id": 1018,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -693,13 +746,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "579:7:4",
+                      "src": "1073:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 988,
+                    "id": 1026,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -707,61 +760,61 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "579:86:4",
+                    "src": "1073:86:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 989,
+                  "id": 1027,
                   "nodeType": "ExpressionStatement",
-                  "src": "579:86:4"
+                  "src": "1073:86:5"
                 },
                 {
-                  "id": 990,
+                  "id": 1028,
                   "nodeType": "PlaceholderStatement",
-                  "src": "675:1:4"
+                  "src": "1169:1:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 992,
+            "id": 1030,
             "name": "isDepositable",
             "nodeType": "ModifierDefinition",
             "overrides": null,
             "parameters": {
-              "id": 979,
+              "id": 1017,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "566:2:4"
+              "src": "1060:2:5"
             },
-            "src": "544:139:4",
+            "src": "1038:139:5",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 1000,
+              "id": 1038,
               "nodeType": "Block",
-              "src": "726:40:4",
+              "src": "1220:40:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 998,
+                    "id": 1036,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 995,
+                      "id": 1033,
                       "name": "runBlock",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 949,
-                      "src": "736:8:4",
+                      "referencedDeclaration": 985,
+                      "src": "1230:8:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -773,18 +826,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 996,
+                        "id": 1034,
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": -4,
-                        "src": "747:5:4",
+                        "src": "1241:5:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_block",
                           "typeString": "block"
                         }
                       },
-                      "id": 997,
+                      "id": 1035,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -792,26 +845,26 @@
                       "memberName": "number",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "747:12:4",
+                      "src": "1241:12:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "736:23:4",
+                    "src": "1230:23:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 999,
+                  "id": 1037,
                   "nodeType": "ExpressionStatement",
-                  "src": "736:23:4"
+                  "src": "1230:23:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1001,
+            "id": 1039,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -819,45 +872,45 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 993,
+              "id": 1031,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "714:2:4"
+              "src": "1208:2:5"
             },
             "returnParameters": {
-              "id": 994,
+              "id": 1032,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "726:0:4"
+              "src": "1220:0:5"
             },
-            "scope": 1039,
-            "src": "689:77:4",
+            "scope": 1077,
+            "src": "1183:77:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 1010,
+              "id": 1048,
               "nodeType": "Block",
-              "src": "852:67:4",
+              "src": "1346:67:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1008,
+                    "id": 1046,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1006,
+                      "id": 1044,
                       "name": "fundingPhaseBlockLength",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 951,
-                      "src": "862:23:4",
+                      "referencedDeclaration": 987,
+                      "src": "1356:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -867,31 +920,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1007,
+                      "id": 1045,
                       "name": "_fundingPhaseBlockLength",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1003,
-                      "src": "888:24:4",
+                      "referencedDeclaration": 1041,
+                      "src": "1382:24:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "862:50:4",
+                    "src": "1356:50:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1009,
+                  "id": 1047,
                   "nodeType": "ExpressionStatement",
-                  "src": "862:50:4"
+                  "src": "1356:50:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1011,
+            "id": 1049,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -899,18 +952,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1004,
+              "id": 1042,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1003,
+                  "id": 1041,
                   "mutability": "mutable",
                   "name": "_fundingPhaseBlockLength",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1011,
-                  "src": "809:32:4",
+                  "scope": 1049,
+                  "src": "1303:32:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -918,10 +971,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1002,
+                    "id": 1040,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "809:7:4",
+                    "src": "1303:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -931,42 +984,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "808:34:4"
+              "src": "1302:34:5"
             },
             "returnParameters": {
-              "id": 1005,
+              "id": 1043,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "852:0:4"
+              "src": "1346:0:5"
             },
-            "scope": 1039,
-            "src": "772:147:4",
+            "scope": 1077,
+            "src": "1266:147:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 1020,
+              "id": 1058,
               "nodeType": "Block",
-              "src": "1005:67:4",
+              "src": "1499:67:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1018,
+                    "id": 1056,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1016,
+                      "id": 1054,
                       "name": "runningPhaseBlockLength",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 953,
-                      "src": "1015:23:4",
+                      "referencedDeclaration": 989,
+                      "src": "1509:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -976,31 +1029,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1017,
+                      "id": 1055,
                       "name": "_runningPhaseBlockLength",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1013,
-                      "src": "1041:24:4",
+                      "referencedDeclaration": 1051,
+                      "src": "1535:24:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "1015:50:4",
+                    "src": "1509:50:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1019,
+                  "id": 1057,
                   "nodeType": "ExpressionStatement",
-                  "src": "1015:50:4"
+                  "src": "1509:50:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1021,
+            "id": 1059,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1008,18 +1061,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1014,
+              "id": 1052,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1013,
+                  "id": 1051,
                   "mutability": "mutable",
                   "name": "_runningPhaseBlockLength",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1021,
-                  "src": "962:32:4",
+                  "scope": 1059,
+                  "src": "1456:32:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1027,10 +1080,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1012,
+                    "id": 1050,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "962:7:4",
+                    "src": "1456:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1040,25 +1093,25 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "961:34:4"
+              "src": "1455:34:5"
             },
             "returnParameters": {
-              "id": 1015,
+              "id": 1053,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1005:0:4"
+              "src": "1499:0:5"
             },
-            "scope": 1039,
-            "src": "925:147:4",
+            "scope": 1077,
+            "src": "1419:147:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 1037,
+              "id": 1075,
               "nodeType": "Block",
-              "src": "1166:180:4",
+              "src": "1660:180:5",
               "statements": [
                 {
                   "expression": {
@@ -1070,19 +1123,19 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1029,
+                        "id": 1067,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 1027,
+                          "id": 1065,
                           "name": "_postFundingPhaseBlockLength",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1023,
-                          "src": "1184:28:4",
+                          "referencedDeclaration": 1061,
+                          "src": "1678:28:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1092,18 +1145,18 @@
                         "operator": "<",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 1028,
+                          "id": 1066,
                           "name": "runningPhaseBlockLength",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 953,
-                          "src": "1215:23:4",
+                          "referencedDeclaration": 989,
+                          "src": "1709:23:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "src": "1184:54:4",
+                        "src": "1678:54:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1112,14 +1165,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "706f73745f66756e64696e675f657863656564735f72756e74696d65",
-                        "id": 1030,
+                        "id": 1068,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1240:30:4",
+                        "src": "1734:30:5",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_b35e1e40c6e0b8573ccf1151d34fff35f61bff989a935f79c3e06bbe54afcf41",
@@ -1139,7 +1192,7 @@
                           "typeString": "literal_string \"post_funding_exceeds_runtime\""
                         }
                       ],
-                      "id": 1026,
+                      "id": 1064,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1147,13 +1200,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "1176:7:4",
+                      "src": "1670:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1031,
+                    "id": 1069,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1161,33 +1214,33 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1176:95:4",
+                    "src": "1670:95:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1032,
+                  "id": 1070,
                   "nodeType": "ExpressionStatement",
-                  "src": "1176:95:4"
+                  "src": "1670:95:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1035,
+                    "id": 1073,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1033,
+                      "id": 1071,
                       "name": "postFundingPhaseBlockLength",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 955,
-                      "src": "1281:27:4",
+                      "referencedDeclaration": 991,
+                      "src": "1775:27:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1197,31 +1250,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1034,
+                      "id": 1072,
                       "name": "_postFundingPhaseBlockLength",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1023,
-                      "src": "1311:28:4",
+                      "referencedDeclaration": 1061,
+                      "src": "1805:28:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "1281:58:4",
+                    "src": "1775:58:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1036,
+                  "id": 1074,
                   "nodeType": "ExpressionStatement",
-                  "src": "1281:58:4"
+                  "src": "1775:58:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1038,
+            "id": 1076,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1229,18 +1282,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1024,
+              "id": 1062,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1023,
+                  "id": 1061,
                   "mutability": "mutable",
                   "name": "_postFundingPhaseBlockLength",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1038,
-                  "src": "1119:36:4",
+                  "scope": 1076,
+                  "src": "1613:36:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1248,10 +1301,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1022,
+                    "id": 1060,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1119:7:4",
+                    "src": "1613:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1261,33 +1314,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1118:38:4"
+              "src": "1612:38:5"
             },
             "returnParameters": {
-              "id": 1025,
+              "id": 1063,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1166:0:4"
+              "src": "1660:0:5"
             },
-            "scope": 1039,
-            "src": "1078:268:4",
+            "scope": 1077,
+            "src": "1572:268:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 1040,
-        "src": "99:1249:4"
+        "scope": 1078,
+        "src": "515:1327:5"
       }
     ],
-    "src": "32:1317:4"
+    "src": "377:1466:5"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoBlocksV1.sol",
       "exportedSymbols": {
         "KukoBlocksV1": [
-          1039
+          1077
         ]
       },
       "license": "MIT"
@@ -1305,9 +1358,9 @@
             ".0"
           ]
         },
-        "id": 944,
+        "id": 977,
         "name": "PragmaDirective",
-        "src": "32:31:4"
+        "src": "377:31:5"
       },
       {
         "attributes": {
@@ -1316,29 +1369,63 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 945,
+        "id": 978,
         "name": "PragmaDirective",
-        "src": "64:33:4"
+        "src": "409:33:5"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2793,
+          "absolutePath": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+          "file": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+          "scope": 1078,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 979,
+        "name": "ImportDirective",
+        "src": "444:69:5"
       },
       {
         "attributes": {
           "abstract": true,
-          "baseContracts": [
-            null
-          ],
           "contractDependencies": [
-            null
+            2792
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1039
+            1077,
+            2792
           ],
           "name": "KukoBlocksV1",
-          "scope": 1040
+          "scope": 1078
         },
         "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Initializable",
+                  "referencedDeclaration": 2792,
+                  "type": "contract Initializable"
+                },
+                "id": 980,
+                "name": "UserDefinedTypeName",
+                "src": "549:13:5"
+              }
+            ],
+            "id": 981,
+            "name": "InheritanceSpecifier",
+            "src": "549:13:5"
+          },
           {
             "attributes": {
               "constant": false,
@@ -1346,7 +1433,7 @@
               "mutability": "mutable",
               "name": "startBlock",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -1359,14 +1446,14 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 946,
+                "id": 982,
                 "name": "ElementaryTypeName",
-                "src": "136:7:4"
+                "src": "569:7:5"
               }
             ],
-            "id": 947,
+            "id": 983,
             "name": "VariableDeclaration",
-            "src": "136:25:4"
+            "src": "569:25:5"
           },
           {
             "attributes": {
@@ -1375,7 +1462,7 @@
               "mutability": "mutable",
               "name": "runBlock",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -1388,14 +1475,14 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 948,
+                "id": 984,
                 "name": "ElementaryTypeName",
-                "src": "167:7:4"
+                "src": "600:7:5"
               }
             ],
-            "id": 949,
+            "id": 985,
             "name": "VariableDeclaration",
-            "src": "167:23:4"
+            "src": "600:23:5"
           },
           {
             "attributes": {
@@ -1404,7 +1491,7 @@
               "mutability": "mutable",
               "name": "fundingPhaseBlockLength",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -1417,14 +1504,14 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 950,
+                "id": 986,
                 "name": "ElementaryTypeName",
-                "src": "196:7:4"
+                "src": "629:7:5"
               }
             ],
-            "id": 951,
+            "id": 987,
             "name": "VariableDeclaration",
-            "src": "196:38:4"
+            "src": "629:38:5"
           },
           {
             "attributes": {
@@ -1433,7 +1520,7 @@
               "mutability": "mutable",
               "name": "runningPhaseBlockLength",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -1446,14 +1533,14 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 952,
+                "id": 988,
                 "name": "ElementaryTypeName",
-                "src": "240:7:4"
+                "src": "673:7:5"
               }
             ],
-            "id": 953,
+            "id": 989,
             "name": "VariableDeclaration",
-            "src": "240:38:4"
+            "src": "673:38:5"
           },
           {
             "attributes": {
@@ -1462,7 +1549,7 @@
               "mutability": "mutable",
               "name": "postFundingPhaseBlockLength",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -1475,27 +1562,24 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 954,
+                "id": 990,
                 "name": "ElementaryTypeName",
-                "src": "284:7:4"
+                "src": "717:7:5"
               }
             ],
-            "id": 955,
+            "id": 991,
             "name": "VariableDeclaration",
-            "src": "284:42:4"
+            "src": "717:42:5"
           },
           {
             "attributes": {
               "documentation": null,
               "implemented": true,
-              "isConstructor": true,
-              "kind": "constructor",
-              "modifiers": [
-                null
-              ],
-              "name": "",
+              "isConstructor": false,
+              "kind": "function",
+              "name": "__KukoBlocksV1__init",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "internal"
@@ -1508,9 +1592,9 @@
                   ]
                 },
                 "children": [],
-                "id": 956,
+                "id": 992,
                 "name": "ParameterList",
-                "src": "344:2:4"
+                "src": "828:2:5"
               },
               {
                 "attributes": {
@@ -1519,9 +1603,33 @@
                   ]
                 },
                 "children": [],
-                "id": 957,
+                "id": 995,
                 "name": "ParameterList",
-                "src": "356:0:4"
+                "src": "852:0:5"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2775,
+                      "type": "modifier ()",
+                      "value": "initializer"
+                    },
+                    "id": 993,
+                    "name": "Identifier",
+                    "src": "840:11:5"
+                  }
+                ],
+                "id": 994,
+                "name": "ModifierInvocation",
+                "src": "840:11:5"
               },
               {
                 "children": [
@@ -1544,13 +1652,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 947,
+                              "referencedDeclaration": 983,
                               "type": "uint256",
                               "value": "startBlock"
                             },
-                            "id": 958,
+                            "id": 996,
                             "name": "Identifier",
-                            "src": "366:10:4"
+                            "src": "860:10:5"
                           },
                           {
                             "attributes": {
@@ -1574,34 +1682,34 @@
                                   "type": "block",
                                   "value": "block"
                                 },
-                                "id": 959,
+                                "id": 997,
                                 "name": "Identifier",
-                                "src": "379:5:4"
+                                "src": "873:5:5"
                               }
                             ],
-                            "id": 960,
+                            "id": 998,
                             "name": "MemberAccess",
-                            "src": "379:12:4"
+                            "src": "873:12:5"
                           }
                         ],
-                        "id": 961,
+                        "id": 999,
                         "name": "Assignment",
-                        "src": "366:25:4"
+                        "src": "860:25:5"
                       }
                     ],
-                    "id": 962,
+                    "id": 1000,
                     "name": "ExpressionStatement",
-                    "src": "366:25:4"
+                    "src": "860:25:5"
                   }
                 ],
-                "id": 963,
+                "id": 1001,
                 "name": "Block",
-                "src": "356:42:4"
+                "src": "852:40:5"
               }
             ],
-            "id": 964,
+            "id": 1002,
             "name": "FunctionDefinition",
-            "src": "333:65:4"
+            "src": "799:93:5"
           },
           {
             "attributes": {
@@ -1619,9 +1727,9 @@
                   ]
                 },
                 "children": [],
-                "id": 965,
+                "id": 1003,
                 "name": "ParameterList",
-                "src": "423:2:4"
+                "src": "917:2:5"
               },
               {
                 "children": [
@@ -1663,9 +1771,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 966,
+                            "id": 1004,
                             "name": "Identifier",
-                            "src": "436:7:4"
+                            "src": "930:7:5"
                           },
                           {
                             "attributes": {
@@ -1704,14 +1812,14 @@
                                       "type": "block",
                                       "value": "block"
                                     },
-                                    "id": 967,
+                                    "id": 1005,
                                     "name": "Identifier",
-                                    "src": "444:5:4"
+                                    "src": "938:5:5"
                                   }
                                 ],
-                                "id": 968,
+                                "id": 1006,
                                 "name": "MemberAccess",
-                                "src": "444:12:4"
+                                "src": "938:12:5"
                               },
                               {
                                 "attributes": {
@@ -1734,13 +1842,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 949,
+                                      "referencedDeclaration": 985,
                                       "type": "uint256",
                                       "value": "runBlock"
                                     },
-                                    "id": 969,
+                                    "id": 1007,
                                     "name": "Identifier",
-                                    "src": "460:8:4"
+                                    "src": "954:8:5"
                                   },
                                   {
                                     "attributes": {
@@ -1748,23 +1856,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 953,
+                                      "referencedDeclaration": 989,
                                       "type": "uint256",
                                       "value": "runningPhaseBlockLength"
                                     },
-                                    "id": 970,
+                                    "id": 1008,
                                     "name": "Identifier",
-                                    "src": "471:23:4"
+                                    "src": "965:23:5"
                                   }
                                 ],
-                                "id": 971,
+                                "id": 1009,
                                 "name": "BinaryOperation",
-                                "src": "460:34:4"
+                                "src": "954:34:5"
                               }
                             ],
-                            "id": 972,
+                            "id": 1010,
                             "name": "BinaryOperation",
-                            "src": "444:50:4"
+                            "src": "938:50:5"
                           },
                           {
                             "attributes": {
@@ -1779,34 +1887,34 @@
                               "type": "literal_string \"cannot_close_contract\"",
                               "value": "cannot_close_contract"
                             },
-                            "id": 973,
+                            "id": 1011,
                             "name": "Literal",
-                            "src": "496:23:4"
+                            "src": "990:23:5"
                           }
                         ],
-                        "id": 974,
+                        "id": 1012,
                         "name": "FunctionCall",
-                        "src": "436:84:4"
+                        "src": "930:84:5"
                       }
                     ],
-                    "id": 975,
+                    "id": 1013,
                     "name": "ExpressionStatement",
-                    "src": "436:84:4"
+                    "src": "930:84:5"
                   },
                   {
-                    "id": 976,
+                    "id": 1014,
                     "name": "PlaceholderStatement",
-                    "src": "530:1:4"
+                    "src": "1024:1:5"
                   }
                 ],
-                "id": 977,
+                "id": 1015,
                 "name": "Block",
-                "src": "426:112:4"
+                "src": "920:112:5"
               }
             ],
-            "id": 978,
+            "id": 1016,
             "name": "ModifierDefinition",
-            "src": "404:134:4"
+            "src": "898:134:5"
           },
           {
             "attributes": {
@@ -1824,9 +1932,9 @@
                   ]
                 },
                 "children": [],
-                "id": 979,
+                "id": 1017,
                 "name": "ParameterList",
-                "src": "566:2:4"
+                "src": "1060:2:5"
               },
               {
                 "children": [
@@ -1868,9 +1976,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 980,
+                            "id": 1018,
                             "name": "Identifier",
-                            "src": "579:7:4"
+                            "src": "1073:7:5"
                           },
                           {
                             "attributes": {
@@ -1909,14 +2017,14 @@
                                       "type": "block",
                                       "value": "block"
                                     },
-                                    "id": 981,
+                                    "id": 1019,
                                     "name": "Identifier",
-                                    "src": "587:5:4"
+                                    "src": "1081:5:5"
                                   }
                                 ],
-                                "id": 982,
+                                "id": 1020,
                                 "name": "MemberAccess",
-                                "src": "587:12:4"
+                                "src": "1081:12:5"
                               },
                               {
                                 "attributes": {
@@ -1939,13 +2047,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 949,
+                                      "referencedDeclaration": 985,
                                       "type": "uint256",
                                       "value": "runBlock"
                                     },
-                                    "id": 983,
+                                    "id": 1021,
                                     "name": "Identifier",
-                                    "src": "602:8:4"
+                                    "src": "1096:8:5"
                                   },
                                   {
                                     "attributes": {
@@ -1953,23 +2061,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 955,
+                                      "referencedDeclaration": 991,
                                       "type": "uint256",
                                       "value": "postFundingPhaseBlockLength"
                                     },
-                                    "id": 984,
+                                    "id": 1022,
                                     "name": "Identifier",
-                                    "src": "613:27:4"
+                                    "src": "1107:27:5"
                                   }
                                 ],
-                                "id": 985,
+                                "id": 1023,
                                 "name": "BinaryOperation",
-                                "src": "602:38:4"
+                                "src": "1096:38:5"
                               }
                             ],
-                            "id": 986,
+                            "id": 1024,
                             "name": "BinaryOperation",
-                            "src": "587:53:4"
+                            "src": "1081:53:5"
                           },
                           {
                             "attributes": {
@@ -1984,34 +2092,34 @@
                               "type": "literal_string \"cannot_fund_contract\"",
                               "value": "cannot_fund_contract"
                             },
-                            "id": 987,
+                            "id": 1025,
                             "name": "Literal",
-                            "src": "642:22:4"
+                            "src": "1136:22:5"
                           }
                         ],
-                        "id": 988,
+                        "id": 1026,
                         "name": "FunctionCall",
-                        "src": "579:86:4"
+                        "src": "1073:86:5"
                       }
                     ],
-                    "id": 989,
+                    "id": 1027,
                     "name": "ExpressionStatement",
-                    "src": "579:86:4"
+                    "src": "1073:86:5"
                   },
                   {
-                    "id": 990,
+                    "id": 1028,
                     "name": "PlaceholderStatement",
-                    "src": "675:1:4"
+                    "src": "1169:1:5"
                   }
                 ],
-                "id": 991,
+                "id": 1029,
                 "name": "Block",
-                "src": "569:114:4"
+                "src": "1063:114:5"
               }
             ],
-            "id": 992,
+            "id": 1030,
             "name": "ModifierDefinition",
-            "src": "544:139:4"
+            "src": "1038:139:5"
           },
           {
             "attributes": {
@@ -2024,7 +2132,7 @@
               ],
               "name": "_captureRunBlock",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "internal"
@@ -2037,9 +2145,9 @@
                   ]
                 },
                 "children": [],
-                "id": 993,
+                "id": 1031,
                 "name": "ParameterList",
-                "src": "714:2:4"
+                "src": "1208:2:5"
               },
               {
                 "attributes": {
@@ -2048,9 +2156,9 @@
                   ]
                 },
                 "children": [],
-                "id": 994,
+                "id": 1032,
                 "name": "ParameterList",
-                "src": "726:0:4"
+                "src": "1220:0:5"
               },
               {
                 "children": [
@@ -2073,13 +2181,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 949,
+                              "referencedDeclaration": 985,
                               "type": "uint256",
                               "value": "runBlock"
                             },
-                            "id": 995,
+                            "id": 1033,
                             "name": "Identifier",
-                            "src": "736:8:4"
+                            "src": "1230:8:5"
                           },
                           {
                             "attributes": {
@@ -2103,34 +2211,34 @@
                                   "type": "block",
                                   "value": "block"
                                 },
-                                "id": 996,
+                                "id": 1034,
                                 "name": "Identifier",
-                                "src": "747:5:4"
+                                "src": "1241:5:5"
                               }
                             ],
-                            "id": 997,
+                            "id": 1035,
                             "name": "MemberAccess",
-                            "src": "747:12:4"
+                            "src": "1241:12:5"
                           }
                         ],
-                        "id": 998,
+                        "id": 1036,
                         "name": "Assignment",
-                        "src": "736:23:4"
+                        "src": "1230:23:5"
                       }
                     ],
-                    "id": 999,
+                    "id": 1037,
                     "name": "ExpressionStatement",
-                    "src": "736:23:4"
+                    "src": "1230:23:5"
                   }
                 ],
-                "id": 1000,
+                "id": 1038,
                 "name": "Block",
-                "src": "726:40:4"
+                "src": "1220:40:5"
               }
             ],
-            "id": 1001,
+            "id": 1039,
             "name": "FunctionDefinition",
-            "src": "689:77:4"
+            "src": "1183:77:5"
           },
           {
             "attributes": {
@@ -2143,7 +2251,7 @@
               ],
               "name": "_setFundingPhaseBlockLength",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "internal"
@@ -2157,7 +2265,7 @@
                       "mutability": "mutable",
                       "name": "_fundingPhaseBlockLength",
                       "overrides": null,
-                      "scope": 1011,
+                      "scope": 1049,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2170,19 +2278,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1002,
+                        "id": 1040,
                         "name": "ElementaryTypeName",
-                        "src": "809:7:4"
+                        "src": "1303:7:5"
                       }
                     ],
-                    "id": 1003,
+                    "id": 1041,
                     "name": "VariableDeclaration",
-                    "src": "809:32:4"
+                    "src": "1303:32:5"
                   }
                 ],
-                "id": 1004,
+                "id": 1042,
                 "name": "ParameterList",
-                "src": "808:34:4"
+                "src": "1302:34:5"
               },
               {
                 "attributes": {
@@ -2191,9 +2299,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1005,
+                "id": 1043,
                 "name": "ParameterList",
-                "src": "852:0:4"
+                "src": "1346:0:5"
               },
               {
                 "children": [
@@ -2216,13 +2324,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 951,
+                              "referencedDeclaration": 987,
                               "type": "uint256",
                               "value": "fundingPhaseBlockLength"
                             },
-                            "id": 1006,
+                            "id": 1044,
                             "name": "Identifier",
-                            "src": "862:23:4"
+                            "src": "1356:23:5"
                           },
                           {
                             "attributes": {
@@ -2230,33 +2338,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1003,
+                              "referencedDeclaration": 1041,
                               "type": "uint256",
                               "value": "_fundingPhaseBlockLength"
                             },
-                            "id": 1007,
+                            "id": 1045,
                             "name": "Identifier",
-                            "src": "888:24:4"
+                            "src": "1382:24:5"
                           }
                         ],
-                        "id": 1008,
+                        "id": 1046,
                         "name": "Assignment",
-                        "src": "862:50:4"
+                        "src": "1356:50:5"
                       }
                     ],
-                    "id": 1009,
+                    "id": 1047,
                     "name": "ExpressionStatement",
-                    "src": "862:50:4"
+                    "src": "1356:50:5"
                   }
                 ],
-                "id": 1010,
+                "id": 1048,
                 "name": "Block",
-                "src": "852:67:4"
+                "src": "1346:67:5"
               }
             ],
-            "id": 1011,
+            "id": 1049,
             "name": "FunctionDefinition",
-            "src": "772:147:4"
+            "src": "1266:147:5"
           },
           {
             "attributes": {
@@ -2269,7 +2377,7 @@
               ],
               "name": "_setRunningPhaseBlockLength",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "internal"
@@ -2283,7 +2391,7 @@
                       "mutability": "mutable",
                       "name": "_runningPhaseBlockLength",
                       "overrides": null,
-                      "scope": 1021,
+                      "scope": 1059,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2296,19 +2404,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1012,
+                        "id": 1050,
                         "name": "ElementaryTypeName",
-                        "src": "962:7:4"
+                        "src": "1456:7:5"
                       }
                     ],
-                    "id": 1013,
+                    "id": 1051,
                     "name": "VariableDeclaration",
-                    "src": "962:32:4"
+                    "src": "1456:32:5"
                   }
                 ],
-                "id": 1014,
+                "id": 1052,
                 "name": "ParameterList",
-                "src": "961:34:4"
+                "src": "1455:34:5"
               },
               {
                 "attributes": {
@@ -2317,9 +2425,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1015,
+                "id": 1053,
                 "name": "ParameterList",
-                "src": "1005:0:4"
+                "src": "1499:0:5"
               },
               {
                 "children": [
@@ -2342,13 +2450,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 953,
+                              "referencedDeclaration": 989,
                               "type": "uint256",
                               "value": "runningPhaseBlockLength"
                             },
-                            "id": 1016,
+                            "id": 1054,
                             "name": "Identifier",
-                            "src": "1015:23:4"
+                            "src": "1509:23:5"
                           },
                           {
                             "attributes": {
@@ -2356,33 +2464,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1013,
+                              "referencedDeclaration": 1051,
                               "type": "uint256",
                               "value": "_runningPhaseBlockLength"
                             },
-                            "id": 1017,
+                            "id": 1055,
                             "name": "Identifier",
-                            "src": "1041:24:4"
+                            "src": "1535:24:5"
                           }
                         ],
-                        "id": 1018,
+                        "id": 1056,
                         "name": "Assignment",
-                        "src": "1015:50:4"
+                        "src": "1509:50:5"
                       }
                     ],
-                    "id": 1019,
+                    "id": 1057,
                     "name": "ExpressionStatement",
-                    "src": "1015:50:4"
+                    "src": "1509:50:5"
                   }
                 ],
-                "id": 1020,
+                "id": 1058,
                 "name": "Block",
-                "src": "1005:67:4"
+                "src": "1499:67:5"
               }
             ],
-            "id": 1021,
+            "id": 1059,
             "name": "FunctionDefinition",
-            "src": "925:147:4"
+            "src": "1419:147:5"
           },
           {
             "attributes": {
@@ -2395,7 +2503,7 @@
               ],
               "name": "_setPostFundingPhaseBlockLength",
               "overrides": null,
-              "scope": 1039,
+              "scope": 1077,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "internal"
@@ -2409,7 +2517,7 @@
                       "mutability": "mutable",
                       "name": "_postFundingPhaseBlockLength",
                       "overrides": null,
-                      "scope": 1038,
+                      "scope": 1076,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2422,19 +2530,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1022,
+                        "id": 1060,
                         "name": "ElementaryTypeName",
-                        "src": "1119:7:4"
+                        "src": "1613:7:5"
                       }
                     ],
-                    "id": 1023,
+                    "id": 1061,
                     "name": "VariableDeclaration",
-                    "src": "1119:36:4"
+                    "src": "1613:36:5"
                   }
                 ],
-                "id": 1024,
+                "id": 1062,
                 "name": "ParameterList",
-                "src": "1118:38:4"
+                "src": "1612:38:5"
               },
               {
                 "attributes": {
@@ -2443,9 +2551,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1025,
+                "id": 1063,
                 "name": "ParameterList",
-                "src": "1166:0:4"
+                "src": "1660:0:5"
               },
               {
                 "children": [
@@ -2487,9 +2595,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 1026,
+                            "id": 1064,
                             "name": "Identifier",
-                            "src": "1176:7:4"
+                            "src": "1670:7:5"
                           },
                           {
                             "attributes": {
@@ -2512,13 +2620,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1023,
+                                  "referencedDeclaration": 1061,
                                   "type": "uint256",
                                   "value": "_postFundingPhaseBlockLength"
                                 },
-                                "id": 1027,
+                                "id": 1065,
                                 "name": "Identifier",
-                                "src": "1184:28:4"
+                                "src": "1678:28:5"
                               },
                               {
                                 "attributes": {
@@ -2526,18 +2634,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 953,
+                                  "referencedDeclaration": 989,
                                   "type": "uint256",
                                   "value": "runningPhaseBlockLength"
                                 },
-                                "id": 1028,
+                                "id": 1066,
                                 "name": "Identifier",
-                                "src": "1215:23:4"
+                                "src": "1709:23:5"
                               }
                             ],
-                            "id": 1029,
+                            "id": 1067,
                             "name": "BinaryOperation",
-                            "src": "1184:54:4"
+                            "src": "1678:54:5"
                           },
                           {
                             "attributes": {
@@ -2552,19 +2660,19 @@
                               "type": "literal_string \"post_funding_exceeds_runtime\"",
                               "value": "post_funding_exceeds_runtime"
                             },
-                            "id": 1030,
+                            "id": 1068,
                             "name": "Literal",
-                            "src": "1240:30:4"
+                            "src": "1734:30:5"
                           }
                         ],
-                        "id": 1031,
+                        "id": 1069,
                         "name": "FunctionCall",
-                        "src": "1176:95:4"
+                        "src": "1670:95:5"
                       }
                     ],
-                    "id": 1032,
+                    "id": 1070,
                     "name": "ExpressionStatement",
-                    "src": "1176:95:4"
+                    "src": "1670:95:5"
                   },
                   {
                     "children": [
@@ -2585,13 +2693,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 955,
+                              "referencedDeclaration": 991,
                               "type": "uint256",
                               "value": "postFundingPhaseBlockLength"
                             },
-                            "id": 1033,
+                            "id": 1071,
                             "name": "Identifier",
-                            "src": "1281:27:4"
+                            "src": "1775:27:5"
                           },
                           {
                             "attributes": {
@@ -2599,43 +2707,43 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1023,
+                              "referencedDeclaration": 1061,
                               "type": "uint256",
                               "value": "_postFundingPhaseBlockLength"
                             },
-                            "id": 1034,
+                            "id": 1072,
                             "name": "Identifier",
-                            "src": "1311:28:4"
+                            "src": "1805:28:5"
                           }
                         ],
-                        "id": 1035,
+                        "id": 1073,
                         "name": "Assignment",
-                        "src": "1281:58:4"
+                        "src": "1775:58:5"
                       }
                     ],
-                    "id": 1036,
+                    "id": 1074,
                     "name": "ExpressionStatement",
-                    "src": "1281:58:4"
+                    "src": "1775:58:5"
                   }
                 ],
-                "id": 1037,
+                "id": 1075,
                 "name": "Block",
-                "src": "1166:180:4"
+                "src": "1660:180:5"
               }
             ],
-            "id": 1038,
+            "id": 1076,
             "name": "FunctionDefinition",
-            "src": "1078:268:4"
+            "src": "1572:268:5"
           }
         ],
-        "id": 1039,
+        "id": 1077,
         "name": "ContractDefinition",
-        "src": "99:1249:4"
+        "src": "515:1327:5"
       }
     ],
-    "id": 1040,
+    "id": 1078,
     "name": "SourceUnit",
-    "src": "32:1317:4"
+    "src": "377:1466:5"
   },
   "compiler": {
     "name": "solc",
@@ -2643,7 +2751,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-02-06T19:32:46.477Z",
+  "updatedAt": "2021-02-06T22:10:55.146Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -1,11 +1,28 @@
 // SPDX-License-Identifier: MIT
+//   ___  __    ___  ___  ___  __    ________
+//  |\  \|\  \ |\  \|\  \|\  \|\  \ |\   __  \
+//  \ \  \/  /|\ \  \\\  \ \  \/  /|\ \  \|\  \
+//   \ \   ___  \ \  \\\  \ \   ___  \ \  \\\  \
+//    \ \  \\ \  \ \  \\\  \ \  \\ \  \ \  \\\  \
+//     \ \__\\ \__\ \_______\ \__\\ \__\ \_______\
+//      \|__| \|__|\|_______|\|__| \|__|\|_______|
+//
 pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
-abstract contract KukoStatusV1 {
-    bool public running = false;
-    bool public closed = false;
-    bool public cancelled = false;
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
+
+abstract contract KukoStatusV1 is Initializable {
+    bool public running;
+    bool public closed;
+    bool public cancelled;
+
+    // solhint-disable-next-line
+    function __KukoStatusV1__init() internal initializer {
+        running = false;
+        closed = false;
+        cancelled = false;
+    }
 
     modifier isNotStarted() {
         require(running == false, "round_not_started");

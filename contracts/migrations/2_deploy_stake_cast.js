@@ -11,7 +11,8 @@ module.exports = function (deployer, net) {
         const DaiMockInstance = await deployer.deploy(DAIMock);
         const yDaiVaultMockInstance = await deployer.deploy(yDaiVaultMock, DaiMockInstance.address);
         const UniswapEthDaiPoolMockInstance = await deployer.deploy(UniswapETHDAIPoolMock);
-        const KukoEthPriceGambleInstance = await deployer.deploy(KukoEthPriceGamble, 'Kuko', DaiMockInstance.address, yDaiVaultMockInstance.address, UniswapEthDaiPoolMockInstance.address, 20, 200, 180);
+        const KukoEthPriceGambleInstance = await deployer.deploy(KukoEthPriceGamble);
+        KukoEthPriceGambleInstance.__KukoEthPriceGamble__init('Kuko', DaiMockInstance.address, yDaiVaultMockInstance.address, UniswapEthDaiPoolMockInstance.address, 20, 200, 180);
 
         break;
       }
@@ -19,7 +20,8 @@ module.exports = function (deployer, net) {
         const DaiMockInstance = await deployer.deploy(DAIMock);
         const yDaiVaultMockInstance = await deployer.deploy(yDaiVaultMock, DaiMockInstance.address);
         const UniswapEthDaiPoolMockInstance = await deployer.deploy(UniswapETHDAIPoolMock);
-        const KukoEthPriceGambleInstance = await deployer.deploy(KukoEthPriceGamble, 'Kuko', DaiMockInstance.address, yDaiVaultMockInstance.address, UniswapEthDaiPoolMockInstance.address, 20, 200, 180);
+        const KukoEthPriceGambleInstance = await deployer.deploy(KukoEthPriceGamble);
+        // KukoEthPriceGambleInstance.__KukoEthPriceGamble__init('Kuko', DaiMockInstance.address, yDaiVaultMockInstance.address, UniswapEthDaiPoolMockInstance.address, 20, 200, 180);
 
         break;
       }

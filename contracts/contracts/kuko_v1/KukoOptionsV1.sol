@@ -1,4 +1,12 @@
 // SPDX-License-Identifier: MIT
+//   ___  __    ___  ___  ___  __    ________
+//  |\  \|\  \ |\  \|\  \|\  \|\  \ |\   __  \
+//  \ \  \/  /|\ \  \\\  \ \  \/  /|\ \  \|\  \
+//   \ \   ___  \ \  \\\  \ \   ___  \ \  \\\  \
+//    \ \  \\ \  \ \  \\\  \ \  \\ \  \ \  \\\  \
+//     \ \__\\ \__\ \_______\ \__\\ \__\ \_______\
+//      \|__| \|__|\|_______|\|__| \|__|\|_______|
+//
 pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
@@ -11,7 +19,7 @@ struct KukoOptionV1 {
 }
 
 abstract contract KukoOptionsV1 {
-    KukoOptionV1[] internal options;
+    KukoOptionV1[] public options;
     mapping(uint256 => uint256) internal optionIds;
 
     ///@return Serialized options

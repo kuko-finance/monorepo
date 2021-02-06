@@ -1,10 +1,18 @@
 // SPDX-License-Identifier: MIT
+//   ___  __    ___  ___  ___  __    ________
+//  |\  \|\  \ |\  \|\  \|\  \|\  \ |\   __  \
+//  \ \  \/  /|\ \  \\\  \ \  \/  /|\ \  \|\  \
+//   \ \   ___  \ \  \\\  \ \   ___  \ \  \\\  \
+//    \ \  \\ \  \ \  \\\  \ \  \\ \  \ \  \\\  \
+//     \ \__\\ \__\ \_______\ \__\\ \__\ \_______\
+//      \|__| \|__|\|_______|\|__| \|__|\|_______|
+//
 pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
-import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol";
 
-abstract contract KukoreV1 is IERC1155 {
+abstract contract KukoreV1 is IERC1155Upgradeable {
     function _onStart() internal virtual;
 
     function _onClose() internal virtual;

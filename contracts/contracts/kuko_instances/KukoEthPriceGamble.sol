@@ -6,19 +6,21 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/math/Math.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
 import "../yield/YDaiYieldProvider.sol";
 import "../result/BinaryUniswapPrice.sol";
 import "../kuko_v1/KukoV1.sol";
 
-contract KukoEthPriceGamble is YDaiYieldProvider, BinaryUniswapPrice, KukoV1 {
+contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPrice, KukoV1 {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
 
     ///@notice Hi test
     ///@param name Name of the contract
-    constructor(
+    // solhint-disable-next-line
+    function __KukoEthPriceGamble__init(
         string memory name,
         address inputToken,
         address vaultAddress,
@@ -26,12 +28,10 @@ contract KukoEthPriceGamble is YDaiYieldProvider, BinaryUniswapPrice, KukoV1 {
         uint256 fundingPeriod,
         uint256 runningPeriod,
         uint256 weightedFundingPeriod
-    )
-        public
-        YDaiYieldProvider(inputToken, vaultAddress)
-        BinaryUniswapPrice(uniswapPairAddress, 1)
-        KukoV1("https://uri.com")
-    {
+    ) public initializer {
+        __BinaryUniswapPrice__init(uniswapPairAddress, 1);
+        __YDaiYieldProvider__init(inputToken, vaultAddress);
+        __KukoV1_init("https://uri.com");
         _setName(name);
 
         _setOwner(msg.sender);

@@ -3,8 +3,9 @@ pragma solidity >=0.6.0 <0.8.0;
 
 import "../kuko_v1/KukoOptionsManagerV1.sol";
 import "@uniswap/uniswap-v2-core/contracts/interfaces/IUniswapV2Pair.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-abstract contract BinaryUniswapPrice is KukoOptionsManagerV1 {
+abstract contract BinaryUniswapPrice is KukoOptionsManagerV1, Initializable {
     IUniswapV2Pair private uniswapPairAddress;
     uint8 public asset;
     uint256 public closePrice;
@@ -16,7 +17,8 @@ abstract contract BinaryUniswapPrice is KukoOptionsManagerV1 {
     uint256 public higherRealId;
     uint256 public lowerRealId;
 
-    constructor(address _uniswapPairAddress, uint8 _asset) internal {
+    // solhint-disable-next-line
+    function __BinaryUniswapPrice__init(address _uniswapPairAddress, uint8 _asset) internal initializer {
         require(_asset < 2, "invalid_asset_position");
         uniswapPairAddress = IUniswapV2Pair(_uniswapPairAddress);
         asset = _asset;

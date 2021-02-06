@@ -20,7 +20,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"generateTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/testing/DaiMock.sol\":\"ERC20Mock\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/testing/DaiMock.sol\":{\"keccak256\":\"0x1f7a8c688b532cdfae6300f2ddb8fb839a284db06a3e6979ca837451c8ed734f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://220cb014b75599cabf5763ebbd075e2ba492c336dc907995c892be17ae0633e1\",\"dweb:/ipfs/QmSSx4xY7ZuAp767jtKvCLUza3ZsRieumA7cNqx1RgA1sk\"]},\"@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x3b21f2c8d626de3b9925ae33e972d8bf5c8b1bffb3f4ee94daeed7d0679036e6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7f8d45329fecbf0836ad7543330c3ecd0f8d0ffa42d4016278c3eb2215fdcdfe\",\"dweb:/ipfs/QmXWLT7GcnHtA5NiD6MFi2CV3EWJY4wv5mLNnypqYDrxL3\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xcbd85c86627a47fd939f1f4ee3ba626575ff2a182e1804b29f5136394449b538\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://53c6a80c519bb9356aad28efa9a1ec31603860eb759d2dc57f545fcae1dd1aca\",\"dweb:/ipfs/QmfRS6TtMNUHhvgLHXK21qKNnpn2S7g2Yd1fKaHKyFiJsR\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08\",\"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"generateTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/testing/DaiMock.sol\":\"ERC20Mock\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/testing/DaiMock.sol\":{\"keccak256\":\"0x1f7a8c688b532cdfae6300f2ddb8fb839a284db06a3e6979ca837451c8ed734f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://220cb014b75599cabf5763ebbd075e2ba492c336dc907995c892be17ae0633e1\",\"dweb:/ipfs/QmSSx4xY7ZuAp767jtKvCLUza3ZsRieumA7cNqx1RgA1sk\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://991b44ff44e0496e8554a90f4c0512c28faed45104d40430019f3c67ea67740e\",\"dweb:/ipfs/Qmc3nRapVbcctELoZS5qe17zLkFB3bETBfwzCTMF1CSuGE\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08\",\"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -32,18 +32,18 @@
     "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/testing/DaiMock.sol",
     "exportedSymbols": {
       "DaiMock": [
-        1873
+        1984
       ],
       "ERC20Mock": [
-        1852
+        1963
       ]
     },
-    "id": 1874,
+    "id": 1985,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1843,
+        "id": 1954,
         "literals": [
           "solidity",
           ">=",
@@ -54,16 +54,16 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:31:12"
+        "src": "32:31:14"
       },
       {
         "absolutePath": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
         "file": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "id": 1844,
+        "id": 1955,
         "nodeType": "ImportDirective",
-        "scope": 1874,
-        "sourceUnit": 4232,
-        "src": "65:55:12",
+        "scope": 1985,
+        "sourceUnit": 5834,
+        "src": "65:55:14",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -74,9 +74,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1852,
+        "id": 1963,
         "linearizedBaseContracts": [
-          1852
+          1963
         ],
         "name": "ERC20Mock",
         "nodeType": "ContractDefinition",
@@ -85,7 +85,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "827f32c0",
-            "id": 1851,
+            "id": 1962,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -93,18 +93,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1849,
+              "id": 1960,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1846,
+                  "id": 1957,
                   "mutability": "mutable",
                   "name": "account",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1851,
-                  "src": "172:15:12",
+                  "scope": 1962,
+                  "src": "172:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -112,10 +112,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1845,
+                    "id": 1956,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "172:7:12",
+                    "src": "172:7:14",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -127,13 +127,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1848,
+                  "id": 1959,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1851,
-                  "src": "189:14:12",
+                  "scope": 1962,
+                  "src": "189:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -141,10 +141,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1847,
+                    "id": 1958,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "189:7:12",
+                    "src": "189:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -154,23 +154,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "171:33:12"
+              "src": "171:33:14"
             },
             "returnParameters": {
-              "id": 1850,
+              "id": 1961,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "213:0:12"
+              "src": "213:0:14"
             },
-            "scope": 1852,
-            "src": "148:66:12",
+            "scope": 1963,
+            "src": "148:66:14",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1874,
-        "src": "122:94:12"
+        "scope": 1985,
+        "src": "122:94:14"
       },
       {
         "abstract": false,
@@ -180,14 +180,14 @@
               {
                 "argumentTypes": null,
                 "hexValue": "444149",
-                "id": 1854,
+                "id": 1965,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "string",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "244:5:12",
+                "src": "244:5:14",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_stringliteral_a5e92f3efb6826155f1f728e162af9d7cda33a574a1153b58f03ea01cc37e568",
@@ -198,14 +198,14 @@
               {
                 "argumentTypes": null,
                 "hexValue": "444149",
-                "id": 1855,
+                "id": 1966,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "string",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "251:5:12",
+                "src": "251:5:14",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_stringliteral_a5e92f3efb6826155f1f728e162af9d7cda33a574a1153b58f03ea01cc37e568",
@@ -216,67 +216,67 @@
             ],
             "baseName": {
               "contractScope": null,
-              "id": 1853,
+              "id": 1964,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4231,
-              "src": "238:5:12",
+              "referencedDeclaration": 5833,
+              "src": "238:5:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$4231",
+                "typeIdentifier": "t_contract$_ERC20_$5833",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 1856,
+            "id": 1967,
             "nodeType": "InheritanceSpecifier",
-            "src": "238:19:12"
+            "src": "238:19:14"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1857,
+              "id": 1968,
               "name": "ERC20Mock",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1852,
-              "src": "259:9:12",
+              "referencedDeclaration": 1963,
+              "src": "259:9:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Mock_$1852",
+                "typeIdentifier": "t_contract$_ERC20Mock_$1963",
                 "typeString": "contract ERC20Mock"
               }
             },
-            "id": 1858,
+            "id": 1969,
             "nodeType": "InheritanceSpecifier",
-            "src": "259:9:12"
+            "src": "259:9:14"
           }
         ],
         "contractDependencies": [
-          1852,
-          2191,
-          4231,
-          4309
+          1963,
+          5833,
+          5911,
+          6443
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1873,
+        "id": 1984,
         "linearizedBaseContracts": [
-          1873,
-          1852,
-          4231,
-          4309,
-          2191
+          1984,
+          1963,
+          5833,
+          5911,
+          6443
         ],
         "name": "DaiMock",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "baseFunctions": [
-              1851
+              1962
             ],
             "body": {
-              "id": 1871,
+              "id": 1982,
               "nodeType": "Block",
-              "src": "350:39:12",
+              "src": "350:39:14",
               "statements": [
                 {
                   "expression": {
@@ -284,12 +284,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1867,
+                        "id": 1978,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1860,
-                        "src": "366:7:12",
+                        "referencedDeclaration": 1971,
+                        "src": "366:7:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -297,12 +297,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1868,
+                        "id": 1979,
                         "name": "amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1862,
-                        "src": "375:6:12",
+                        "referencedDeclaration": 1973,
+                        "src": "375:6:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -320,18 +320,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1866,
+                      "id": 1977,
                       "name": "_mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4107,
-                      "src": "360:5:12",
+                      "referencedDeclaration": 5709,
+                      "src": "360:5:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 1869,
+                    "id": 1980,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -339,46 +339,46 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "360:22:12",
+                    "src": "360:22:14",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1870,
+                  "id": 1981,
                   "nodeType": "ExpressionStatement",
-                  "src": "360:22:12"
+                  "src": "360:22:14"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "827f32c0",
-            "id": 1872,
+            "id": 1983,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "generateTokens",
             "nodeType": "FunctionDefinition",
             "overrides": {
-              "id": 1864,
+              "id": 1975,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
-              "src": "341:8:12"
+              "src": "341:8:14"
             },
             "parameters": {
-              "id": 1863,
+              "id": 1974,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1860,
+                  "id": 1971,
                   "mutability": "mutable",
                   "name": "account",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1872,
-                  "src": "299:15:12",
+                  "scope": 1983,
+                  "src": "299:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -386,10 +386,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1859,
+                    "id": 1970,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "299:7:12",
+                    "src": "299:7:14",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -401,13 +401,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1862,
+                  "id": 1973,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1872,
-                  "src": "316:14:12",
+                  "scope": 1983,
+                  "src": "316:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -415,10 +415,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1861,
+                    "id": 1972,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "316:7:12",
+                    "src": "316:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -428,36 +428,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "298:33:12"
+              "src": "298:33:14"
             },
             "returnParameters": {
-              "id": 1865,
+              "id": 1976,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "350:0:12"
+              "src": "350:0:14"
             },
-            "scope": 1873,
-            "src": "275:114:12",
+            "scope": 1984,
+            "src": "275:114:14",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1874,
-        "src": "218:173:12"
+        "scope": 1985,
+        "src": "218:173:14"
       }
     ],
-    "src": "32:360:12"
+    "src": "32:360:14"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/testing/DaiMock.sol",
       "exportedSymbols": {
         "DaiMock": [
-          1873
+          1984
         ],
         "ERC20Mock": [
-          1852
+          1963
         ]
       },
       "license": "MIT"
@@ -475,24 +475,24 @@
             ".0"
           ]
         },
-        "id": 1843,
+        "id": 1954,
         "name": "PragmaDirective",
-        "src": "32:31:12"
+        "src": "32:31:14"
       },
       {
         "attributes": {
-          "SourceUnit": 4232,
+          "SourceUnit": 5834,
           "absolutePath": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
           "file": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-          "scope": 1874,
+          "scope": 1985,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1844,
+        "id": 1955,
         "name": "ImportDirective",
-        "src": "65:55:12"
+        "src": "65:55:14"
       },
       {
         "attributes": {
@@ -507,10 +507,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            1852
+            1963
           ],
           "name": "ERC20Mock",
-          "scope": 1874
+          "scope": 1985
         },
         "children": [
           {
@@ -526,7 +526,7 @@
               ],
               "name": "generateTokens",
               "overrides": null,
-              "scope": 1852,
+              "scope": 1963,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -540,7 +540,7 @@
                       "mutability": "mutable",
                       "name": "account",
                       "overrides": null,
-                      "scope": 1851,
+                      "scope": 1962,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -554,14 +554,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 1845,
+                        "id": 1956,
                         "name": "ElementaryTypeName",
-                        "src": "172:7:12"
+                        "src": "172:7:14"
                       }
                     ],
-                    "id": 1846,
+                    "id": 1957,
                     "name": "VariableDeclaration",
-                    "src": "172:15:12"
+                    "src": "172:15:14"
                   },
                   {
                     "attributes": {
@@ -569,7 +569,7 @@
                       "mutability": "mutable",
                       "name": "amount",
                       "overrides": null,
-                      "scope": 1851,
+                      "scope": 1962,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -582,19 +582,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1847,
+                        "id": 1958,
                         "name": "ElementaryTypeName",
-                        "src": "189:7:12"
+                        "src": "189:7:14"
                       }
                     ],
-                    "id": 1848,
+                    "id": 1959,
                     "name": "VariableDeclaration",
-                    "src": "189:14:12"
+                    "src": "189:14:14"
                   }
                 ],
-                "id": 1849,
+                "id": 1960,
                 "name": "ParameterList",
-                "src": "171:33:12"
+                "src": "171:33:14"
               },
               {
                 "attributes": {
@@ -603,41 +603,41 @@
                   ]
                 },
                 "children": [],
-                "id": 1850,
+                "id": 1961,
                 "name": "ParameterList",
-                "src": "213:0:12"
+                "src": "213:0:14"
               }
             ],
-            "id": 1851,
+            "id": 1962,
             "name": "FunctionDefinition",
-            "src": "148:66:12"
+            "src": "148:66:14"
           }
         ],
-        "id": 1852,
+        "id": 1963,
         "name": "ContractDefinition",
-        "src": "122:94:12"
+        "src": "122:94:14"
       },
       {
         "attributes": {
           "abstract": false,
           "contractDependencies": [
-            1852,
-            2191,
-            4231,
-            4309
+            1963,
+            5833,
+            5911,
+            6443
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1873,
-            1852,
-            4231,
-            4309,
-            2191
+            1984,
+            1963,
+            5833,
+            5911,
+            6443
           ],
           "name": "DaiMock",
-          "scope": 1874
+          "scope": 1985
         },
         "children": [
           {
@@ -646,12 +646,12 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ERC20",
-                  "referencedDeclaration": 4231,
+                  "referencedDeclaration": 5833,
                   "type": "contract ERC20"
                 },
-                "id": 1853,
+                "id": 1964,
                 "name": "UserDefinedTypeName",
-                "src": "238:5:12"
+                "src": "238:5:14"
               },
               {
                 "attributes": {
@@ -666,9 +666,9 @@
                   "type": "literal_string \"DAI\"",
                   "value": "DAI"
                 },
-                "id": 1854,
+                "id": 1965,
                 "name": "Literal",
-                "src": "244:5:12"
+                "src": "244:5:14"
               },
               {
                 "attributes": {
@@ -683,14 +683,14 @@
                   "type": "literal_string \"DAI\"",
                   "value": "DAI"
                 },
-                "id": 1855,
+                "id": 1966,
                 "name": "Literal",
-                "src": "251:5:12"
+                "src": "251:5:14"
               }
             ],
-            "id": 1856,
+            "id": 1967,
             "name": "InheritanceSpecifier",
-            "src": "238:19:12"
+            "src": "238:19:14"
           },
           {
             "attributes": {
@@ -701,22 +701,22 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ERC20Mock",
-                  "referencedDeclaration": 1852,
+                  "referencedDeclaration": 1963,
                   "type": "contract ERC20Mock"
                 },
-                "id": 1857,
+                "id": 1968,
                 "name": "UserDefinedTypeName",
-                "src": "259:9:12"
+                "src": "259:9:14"
               }
             ],
-            "id": 1858,
+            "id": 1969,
             "name": "InheritanceSpecifier",
-            "src": "259:9:12"
+            "src": "259:9:14"
           },
           {
             "attributes": {
               "baseFunctions": [
-                1851
+                1962
               ],
               "documentation": null,
               "functionSelector": "827f32c0",
@@ -727,7 +727,7 @@
                 null
               ],
               "name": "generateTokens",
-              "scope": 1873,
+              "scope": 1984,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -739,9 +739,9 @@
                     null
                   ]
                 },
-                "id": 1864,
+                "id": 1975,
                 "name": "OverrideSpecifier",
-                "src": "341:8:12"
+                "src": "341:8:14"
               },
               {
                 "children": [
@@ -751,7 +751,7 @@
                       "mutability": "mutable",
                       "name": "account",
                       "overrides": null,
-                      "scope": 1872,
+                      "scope": 1983,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -765,14 +765,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 1859,
+                        "id": 1970,
                         "name": "ElementaryTypeName",
-                        "src": "299:7:12"
+                        "src": "299:7:14"
                       }
                     ],
-                    "id": 1860,
+                    "id": 1971,
                     "name": "VariableDeclaration",
-                    "src": "299:15:12"
+                    "src": "299:15:14"
                   },
                   {
                     "attributes": {
@@ -780,7 +780,7 @@
                       "mutability": "mutable",
                       "name": "amount",
                       "overrides": null,
-                      "scope": 1872,
+                      "scope": 1983,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -793,19 +793,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1861,
+                        "id": 1972,
                         "name": "ElementaryTypeName",
-                        "src": "316:7:12"
+                        "src": "316:7:14"
                       }
                     ],
-                    "id": 1862,
+                    "id": 1973,
                     "name": "VariableDeclaration",
-                    "src": "316:14:12"
+                    "src": "316:14:14"
                   }
                 ],
-                "id": 1863,
+                "id": 1974,
                 "name": "ParameterList",
-                "src": "298:33:12"
+                "src": "298:33:14"
               },
               {
                 "attributes": {
@@ -814,9 +814,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1865,
+                "id": 1976,
                 "name": "ParameterList",
-                "src": "350:0:12"
+                "src": "350:0:14"
               },
               {
                 "children": [
@@ -853,13 +853,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4107,
+                              "referencedDeclaration": 5709,
                               "type": "function (address,uint256)",
                               "value": "_mint"
                             },
-                            "id": 1866,
+                            "id": 1977,
                             "name": "Identifier",
-                            "src": "360:5:12"
+                            "src": "360:5:14"
                           },
                           {
                             "attributes": {
@@ -867,13 +867,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1860,
+                              "referencedDeclaration": 1971,
                               "type": "address",
                               "value": "account"
                             },
-                            "id": 1867,
+                            "id": 1978,
                             "name": "Identifier",
-                            "src": "366:7:12"
+                            "src": "366:7:14"
                           },
                           {
                             "attributes": {
@@ -881,43 +881,43 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1862,
+                              "referencedDeclaration": 1973,
                               "type": "uint256",
                               "value": "amount"
                             },
-                            "id": 1868,
+                            "id": 1979,
                             "name": "Identifier",
-                            "src": "375:6:12"
+                            "src": "375:6:14"
                           }
                         ],
-                        "id": 1869,
+                        "id": 1980,
                         "name": "FunctionCall",
-                        "src": "360:22:12"
+                        "src": "360:22:14"
                       }
                     ],
-                    "id": 1870,
+                    "id": 1981,
                     "name": "ExpressionStatement",
-                    "src": "360:22:12"
+                    "src": "360:22:14"
                   }
                 ],
-                "id": 1871,
+                "id": 1982,
                 "name": "Block",
-                "src": "350:39:12"
+                "src": "350:39:14"
               }
             ],
-            "id": 1872,
+            "id": 1983,
             "name": "FunctionDefinition",
-            "src": "275:114:12"
+            "src": "275:114:14"
           }
         ],
-        "id": 1873,
+        "id": 1984,
         "name": "ContractDefinition",
-        "src": "218:173:12"
+        "src": "218:173:14"
       }
     ],
-    "id": 1874,
+    "id": 1985,
     "name": "SourceUnit",
-    "src": "32:360:12"
+    "src": "32:360:14"
   },
   "compiler": {
     "name": "solc",
@@ -925,7 +925,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-02-06T19:32:46.498Z",
+  "updatedAt": "2021-02-06T22:10:55.160Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
