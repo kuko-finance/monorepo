@@ -32,7 +32,6 @@ abstract contract KukoV1 is
     KukoOptionsV1
 {
     string public name;
-
     IERC20 public token;
 
     // solhint-disable-next-line
@@ -67,6 +66,7 @@ abstract contract KukoV1 is
 
     function cancel() public override ownerOnly {
         _setCancel(true);
+        _setClose(true);
     }
 
     // investment and metadata functions

@@ -35,6 +35,8 @@ abstract contract KukoreV1 is IERC1155Upgradeable {
 
     function totalFunds() external view virtual returns (uint256);
 
+    function totalShares() external view virtual returns (uint256);
+
     function depositOf(address owner) external view virtual returns (uint256);
 
     function sharesOf(address owner) external view virtual returns (uint256);

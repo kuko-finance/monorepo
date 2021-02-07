@@ -17,6 +17,13 @@ contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPr
     using Address for address;
     using SafeMath for uint256;
 
+    mapping(address => uint256) private deposits;
+    uint256 private totalDeposits;
+    uint256 private finalEarnings;
+    uint256 private winnerShares;
+    uint256 private loserShares;
+    uint256 private _totalShares;
+
     ///@notice Hi test
     ///@param name Name of the contract
     // solhint-disable-next-line
@@ -80,12 +87,6 @@ contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPr
         }
     }
 
-    mapping(address => uint256) private deposits;
-    uint256 private totalDeposits;
-    uint256 private finalEarnings;
-    uint256 private winnerShares;
-    uint256 private loserShares;
-
     function deposit(uint256 _option, uint256 _amount) public override isDepositable {
         require(optionIds[_option] != 0, "unknown_option");
         token.safeTransferFrom(msg.sender, address(this), _amount);
@@ -94,9 +95,11 @@ contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPr
             uint256 progress = block.number - runBlock;
             _mint(msg.sender, _option, _amount - ((_amount * progress) / runningPhaseBlockLength), "");
             options[optionIds[_option]].shares += _amount - ((_amount * progress) / runningPhaseBlockLength);
+            _totalShares += _amount - ((_amount * progress) / runningPhaseBlockLength);
         } else {
             _mint(msg.sender, _option, _amount, "");
             options[optionIds[_option] - 1].shares += _amount;
+            _totalShares += _amount;
         }
         deposits[msg.sender] += _amount;
         totalDeposits += _amount;
@@ -163,5 +166,7 @@ contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPr
         return _totalFunds();
     }
 
-    // How to you list outputs in a generic manner
+    function totalShares() external view override returns (uint256) {
+        return _totalShares;
+    }
 }

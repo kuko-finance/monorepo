@@ -15,12 +15,10 @@ abstract contract KukoActorsV1 {
     address public runner;
     address public closer;
     address public owner;
-
     uint256 public launcherShare;
     uint256 public runnerShare;
     uint256 public closerShare;
     uint256 public ownerShare;
-
     uint256 public loserShare;
 
     modifier ownerOnly() {

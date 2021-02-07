@@ -1254,12 +1254,12 @@
         }
       },
       "links": {},
-      "address": "0xFA6071A9ff4225b4b7bcd6019e28e6F27a684729",
-      "transactionHash": "0x3c42749d2cdf4608de418fb70b764bd55fc59ac22cd247db0af06d8888802aea"
+      "address": "0xB70bAEc07D9c23C14d7d45549C41949c02DE9095",
+      "transactionHash": "0x6fa8e3b8b267e9a6d1ab78f8ffe3fd63f0ace1a25a77b8b79a218521a47a0ca3"
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-02-06T22:10:59.632Z",
+  "updatedAt": "2021-02-07T17:31:13.617Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
