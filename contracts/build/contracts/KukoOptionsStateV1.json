@@ -1,0 +1,678 @@
+{
+  "contractName": "KukoOptionsStateV1",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "options",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "keyValue",
+          "type": "uint256"
+        },
+        {
+          "internalType": "int8",
+          "name": "finalized",
+          "type": "int8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "shares",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"options\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"keyValue\",\"type\":\"uint256\"},{\"internalType\":\"int8\",\"name\":\"finalized\",\"type\":\"int8\"},{\"internalType\":\"uint256\",\"name\":\"shares\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsStateV1.sol\":\"KukoOptionsStateV1\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsStateV1.sol\":{\"keccak256\":\"0xa5705b1b3a11e4f2b96bb69ac7450e16a30325d38f1f91782159e5b75a3772f7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fbc500457f7018317dd5fd889a27da27f3193ae17501425ae6830cfdfda0bb4b\",\"dweb:/ipfs/QmNb4w3VB8YoaoEFpwzJJUaGrqMehRJP4MFaj1YrEydn4j\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n//   ___  __    ___  ___  ___  __    ________\n//  |\\  \\|\\  \\ |\\  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\\n//  \\ \\  \\/  /|\\ \\  \\\\\\  \\ \\  \\/  /|\\ \\  \\|\\  \\\n//   \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\\\\\  \\\n//    \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\\n//     \\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\n//      \\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|\n//\npragma solidity >=0.6.0 <0.8.0;\npragma experimental ABIEncoderV2;\n\nstruct KukoOptionV1 {\n    uint256 id;\n    string name;\n    uint256 keyValue;\n    int8 finalized;\n    uint256 shares;\n}\n\nabstract contract KukoOptionsStateV1 {\n    KukoOptionV1[] public options;\n    mapping(uint256 => uint256) internal optionIds;\n}\n\n",
+  "sourcePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsStateV1.sol",
+  "ast": {
+    "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsStateV1.sol",
+    "exportedSymbols": {
+      "KukoOptionV1": [
+        1309
+      ],
+      "KukoOptionsStateV1": [
+        1317
+      ]
+    },
+    "id": 1318,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1297,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.6",
+          ".0",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "377:31:7"
+      },
+      {
+        "id": 1298,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "409:33:7"
+      },
+      {
+        "canonicalName": "KukoOptionV1",
+        "id": 1309,
+        "members": [
+          {
+            "constant": false,
+            "id": 1300,
+            "mutability": "mutable",
+            "name": "id",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1309,
+            "src": "470:10:7",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1299,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "470:7:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1302,
+            "mutability": "mutable",
+            "name": "name",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1309,
+            "src": "486:11:7",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 1301,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "486:6:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1304,
+            "mutability": "mutable",
+            "name": "keyValue",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1309,
+            "src": "503:16:7",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1303,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "503:7:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1306,
+            "mutability": "mutable",
+            "name": "finalized",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1309,
+            "src": "525:14:7",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_int8",
+              "typeString": "int8"
+            },
+            "typeName": {
+              "id": 1305,
+              "name": "int8",
+              "nodeType": "ElementaryTypeName",
+              "src": "525:4:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_int8",
+                "typeString": "int8"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1308,
+            "mutability": "mutable",
+            "name": "shares",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1309,
+            "src": "545:14:7",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1307,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "545:7:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "name": "KukoOptionV1",
+        "nodeType": "StructDefinition",
+        "scope": 1318,
+        "src": "444:118:7",
+        "visibility": "public"
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1317,
+        "linearizedBaseContracts": [
+          1317
+        ],
+        "name": "KukoOptionsStateV1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "409e2205",
+            "id": 1312,
+            "mutability": "mutable",
+            "name": "options",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1317,
+            "src": "607:29:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_KukoOptionV1_$1309_storage_$dyn_storage",
+              "typeString": "struct KukoOptionV1[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1310,
+                "name": "KukoOptionV1",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1309,
+                "src": "607:12:7",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_KukoOptionV1_$1309_storage_ptr",
+                  "typeString": "struct KukoOptionV1"
+                }
+              },
+              "id": 1311,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "607:14:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_KukoOptionV1_$1309_storage_$dyn_storage_ptr",
+                "typeString": "struct KukoOptionV1[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1316,
+            "mutability": "mutable",
+            "name": "optionIds",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1317,
+            "src": "642:46:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+              "typeString": "mapping(uint256 => uint256)"
+            },
+            "typeName": {
+              "id": 1315,
+              "keyType": {
+                "id": 1313,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "650:7:7",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "642:27:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                "typeString": "mapping(uint256 => uint256)"
+              },
+              "valueType": {
+                "id": 1314,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "661:7:7",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1318,
+        "src": "564:127:7"
+      }
+    ],
+    "src": "377:316:7"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsStateV1.sol",
+      "exportedSymbols": {
+        "KukoOptionV1": [
+          1309
+        ],
+        "KukoOptionsStateV1": [
+          1317
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.6",
+            ".0",
+            "<",
+            "0.8",
+            ".0"
+          ]
+        },
+        "id": 1297,
+        "name": "PragmaDirective",
+        "src": "377:31:7"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 1298,
+        "name": "PragmaDirective",
+        "src": "409:33:7"
+      },
+      {
+        "attributes": {
+          "canonicalName": "KukoOptionV1",
+          "name": "KukoOptionV1",
+          "scope": 1318,
+          "visibility": "public"
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "id",
+              "overrides": null,
+              "scope": 1309,
+              "stateVariable": false,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 1299,
+                "name": "ElementaryTypeName",
+                "src": "470:7:7"
+              }
+            ],
+            "id": 1300,
+            "name": "VariableDeclaration",
+            "src": "470:10:7"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "name",
+              "overrides": null,
+              "scope": 1309,
+              "stateVariable": false,
+              "storageLocation": "default",
+              "type": "string",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 1301,
+                "name": "ElementaryTypeName",
+                "src": "486:6:7"
+              }
+            ],
+            "id": 1302,
+            "name": "VariableDeclaration",
+            "src": "486:11:7"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "keyValue",
+              "overrides": null,
+              "scope": 1309,
+              "stateVariable": false,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 1303,
+                "name": "ElementaryTypeName",
+                "src": "503:7:7"
+              }
+            ],
+            "id": 1304,
+            "name": "VariableDeclaration",
+            "src": "503:16:7"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "finalized",
+              "overrides": null,
+              "scope": 1309,
+              "stateVariable": false,
+              "storageLocation": "default",
+              "type": "int8",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "int8",
+                  "type": "int8"
+                },
+                "id": 1305,
+                "name": "ElementaryTypeName",
+                "src": "525:4:7"
+              }
+            ],
+            "id": 1306,
+            "name": "VariableDeclaration",
+            "src": "525:14:7"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "shares",
+              "overrides": null,
+              "scope": 1309,
+              "stateVariable": false,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 1307,
+                "name": "ElementaryTypeName",
+                "src": "545:7:7"
+              }
+            ],
+            "id": 1308,
+            "name": "VariableDeclaration",
+            "src": "545:14:7"
+          }
+        ],
+        "id": 1309,
+        "name": "StructDefinition",
+        "src": "444:118:7"
+      },
+      {
+        "attributes": {
+          "abstract": true,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            1317
+          ],
+          "name": "KukoOptionsStateV1",
+          "scope": 1318
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "409e2205",
+              "mutability": "mutable",
+              "name": "options",
+              "overrides": null,
+              "scope": 1317,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct KukoOptionV1[]",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct KukoOptionV1[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "KukoOptionV1",
+                      "referencedDeclaration": 1309,
+                      "type": "struct KukoOptionV1"
+                    },
+                    "id": 1310,
+                    "name": "UserDefinedTypeName",
+                    "src": "607:12:7"
+                  }
+                ],
+                "id": 1311,
+                "name": "ArrayTypeName",
+                "src": "607:14:7"
+              }
+            ],
+            "id": 1312,
+            "name": "VariableDeclaration",
+            "src": "607:29:7"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "optionIds",
+              "overrides": null,
+              "scope": 1317,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(uint256 => uint256)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(uint256 => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 1313,
+                    "name": "ElementaryTypeName",
+                    "src": "650:7:7"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 1314,
+                    "name": "ElementaryTypeName",
+                    "src": "661:7:7"
+                  }
+                ],
+                "id": 1315,
+                "name": "Mapping",
+                "src": "642:27:7"
+              }
+            ],
+            "id": 1316,
+            "name": "VariableDeclaration",
+            "src": "642:46:7"
+          }
+        ],
+        "id": 1317,
+        "name": "ContractDefinition",
+        "src": "564:127:7"
+      }
+    ],
+    "id": 1318,
+    "name": "SourceUnit",
+    "src": "377:316:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-02-07T21:24:53.967Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

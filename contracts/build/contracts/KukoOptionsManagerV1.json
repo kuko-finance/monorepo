@@ -1,7 +1,7 @@
 {
   "contractName": "KukoOptionsManagerV1",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsManagerV1.sol\":\"KukoOptionsManagerV1\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsManagerV1.sol\":{\"keccak256\":\"0xecc4d2c08c20e358b316d9dea3dd8c4e5f3c5bcfbf1266e87770084a99663706\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b3ce9a7e4555f3466ed3d00dc79f11f22cba62913f5cbf31f6eb4da872be8e6f\",\"dweb:/ipfs/QmUeqL65jf1XajkwjkEiymbAJ1DuvHJbA7vbXZtXSSeYvX\"]},\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsV1.sol\":{\"keccak256\":\"0x2b258ed155da4c6527f03862bc191d59f4e78102cd152837c13bcd9d2b22ec3a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f8b226eebcb6499e5a8908c9a519ef410994293c8821b21ee6de2bb0c655b492\",\"dweb:/ipfs/QmNbempXTkeEz2PP9zTkDZNkHtMYBVqUwHtjvG1wVsPjVx\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsManagerV1.sol\":\"KukoOptionsManagerV1\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[]},\"sources\":{\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsManagerV1.sol\":{\"keccak256\":\"0xecc4d2c08c20e358b316d9dea3dd8c4e5f3c5bcfbf1266e87770084a99663706\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b3ce9a7e4555f3466ed3d00dc79f11f22cba62913f5cbf31f6eb4da872be8e6f\",\"dweb:/ipfs/QmUeqL65jf1XajkwjkEiymbAJ1DuvHJbA7vbXZtXSSeYvX\"]},\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsStateV1.sol\":{\"keccak256\":\"0xa5705b1b3a11e4f2b96bb69ac7450e16a30325d38f1f91782159e5b75a3772f7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fbc500457f7018317dd5fd889a27da27f3193ae17501425ae6830cfdfda0bb4b\",\"dweb:/ipfs/QmNb4w3VB8YoaoEFpwzJJUaGrqMehRJP4MFaj1YrEydn4j\"]},\"/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsV1.sol\":{\"keccak256\":\"0xaf748def8b8c744c4d0cd9f2762a6b754d331908d9b55cf76cd5ca2ea1447d2d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://435a425bb907ff920e2a8a5cefc20e7de7b3ca1e207aef73324a1261ed2127d5\",\"dweb:/ipfs/QmZBG281FMfZ16ktNRCqyGnJng1Gd7s5KqYiCivpx3dA7o\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -13,15 +13,15 @@
     "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsManagerV1.sol",
     "exportedSymbols": {
       "KukoOptionsManagerV1": [
-        1104
+        1295
       ]
     },
-    "id": 1105,
+    "id": 1296,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1079,
+        "id": 1270,
         "literals": [
           "solidity",
           ">=",
@@ -35,7 +35,7 @@
         "src": "377:31:6"
       },
       {
-        "id": 1080,
+        "id": 1271,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -46,10 +46,10 @@
       {
         "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsV1.sol",
         "file": "./KukoOptionsV1.sol",
-        "id": 1081,
+        "id": 1272,
         "nodeType": "ImportDirective",
-        "scope": 1105,
-        "sourceUnit": 1271,
+        "scope": 1296,
+        "sourceUnit": 1469,
         "src": "444:29:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -61,9 +61,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1104,
+        "id": 1295,
         "linearizedBaseContracts": [
-          1104
+          1295
         ],
         "name": "KukoOptionsManagerV1",
         "nodeType": "ContractDefinition",
@@ -71,7 +71,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1089,
+            "id": 1280,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -79,17 +79,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1084,
+              "id": 1275,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1083,
+                  "id": 1274,
                   "mutability": "mutable",
                   "name": "optionCount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1089,
+                  "scope": 1280,
                   "src": "541:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -98,7 +98,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1082,
+                    "id": 1273,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "541:7:6",
@@ -114,43 +114,43 @@
               "src": "540:21:6"
             },
             "returnParameters": {
-              "id": 1088,
+              "id": 1279,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1087,
+                  "id": 1278,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1089,
+                  "scope": 1280,
                   "src": "588:21:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_KukoOptionV1_$1118_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_KukoOptionV1_$1309_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct KukoOptionV1[]"
                   },
                   "typeName": {
                     "baseType": {
                       "contractScope": null,
-                      "id": 1085,
+                      "id": 1276,
                       "name": "KukoOptionV1",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 1118,
+                      "referencedDeclaration": 1309,
                       "src": "588:12:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_KukoOptionV1_$1118_storage_ptr",
+                        "typeIdentifier": "t_struct$_KukoOptionV1_$1309_storage_ptr",
                         "typeString": "struct KukoOptionV1"
                       }
                     },
-                    "id": 1086,
+                    "id": 1277,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "588:14:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_KukoOptionV1_$1118_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_KukoOptionV1_$1309_storage_$dyn_storage_ptr",
                       "typeString": "struct KukoOptionV1[]"
                     }
                   },
@@ -160,7 +160,7 @@
               ],
               "src": "587:23:6"
             },
-            "scope": 1104,
+            "scope": 1295,
             "src": "520:91:6",
             "stateMutability": "nonpayable",
             "virtual": true,
@@ -169,7 +169,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1096,
+            "id": 1287,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -177,17 +177,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1092,
+              "id": 1283,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1091,
+                  "id": 1282,
                   "mutability": "mutable",
                   "name": "id",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1096,
+                  "scope": 1287,
                   "src": "637:10:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -196,7 +196,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1090,
+                    "id": 1281,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "637:7:6",
@@ -212,17 +212,17 @@
               "src": "636:12:6"
             },
             "returnParameters": {
-              "id": 1095,
+              "id": 1286,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1094,
+                  "id": 1285,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1096,
+                  "scope": 1287,
                   "src": "680:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -231,7 +231,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1093,
+                    "id": 1284,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "680:4:6",
@@ -246,7 +246,7 @@
               ],
               "src": "679:6:6"
             },
-            "scope": 1104,
+            "scope": 1295,
             "src": "617:69:6",
             "stateMutability": "view",
             "virtual": true,
@@ -255,7 +255,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1103,
+            "id": 1294,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -263,33 +263,33 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1099,
+              "id": 1290,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1098,
+                  "id": 1289,
                   "mutability": "mutable",
                   "name": "option",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1103,
+                  "scope": 1294,
                   "src": "710:26:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_KukoOptionV1_$1118_memory_ptr",
+                    "typeIdentifier": "t_struct$_KukoOptionV1_$1309_memory_ptr",
                     "typeString": "struct KukoOptionV1"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1097,
+                    "id": 1288,
                     "name": "KukoOptionV1",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1118,
+                    "referencedDeclaration": 1309,
                     "src": "710:12:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_KukoOptionV1_$1118_storage_ptr",
+                      "typeIdentifier": "t_struct$_KukoOptionV1_$1309_storage_ptr",
                       "typeString": "struct KukoOptionV1"
                     }
                   },
@@ -300,17 +300,17 @@
               "src": "709:28:6"
             },
             "returnParameters": {
-              "id": 1102,
+              "id": 1293,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1101,
+                  "id": 1292,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1103,
+                  "scope": 1294,
                   "src": "764:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -319,7 +319,7 @@
                     "typeString": "int8"
                   },
                   "typeName": {
-                    "id": 1100,
+                    "id": 1291,
                     "name": "int8",
                     "nodeType": "ElementaryTypeName",
                     "src": "764:4:6",
@@ -334,14 +334,14 @@
               ],
               "src": "763:6:6"
             },
-            "scope": 1104,
+            "scope": 1295,
             "src": "692:78:6",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "internal"
           }
         ],
-        "scope": 1105,
+        "scope": 1296,
         "src": "475:297:6"
       }
     ],
@@ -352,7 +352,7 @@
       "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsManagerV1.sol",
       "exportedSymbols": {
         "KukoOptionsManagerV1": [
-          1104
+          1295
         ]
       },
       "license": "MIT"
@@ -370,7 +370,7 @@
             ".0"
           ]
         },
-        "id": 1079,
+        "id": 1270,
         "name": "PragmaDirective",
         "src": "377:31:6"
       },
@@ -381,22 +381,22 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 1080,
+        "id": 1271,
         "name": "PragmaDirective",
         "src": "409:33:6"
       },
       {
         "attributes": {
-          "SourceUnit": 1271,
+          "SourceUnit": 1469,
           "absolutePath": "/Users/mortimr/projects/kuko-finance/contracts/contracts/kuko_v1/KukoOptionsV1.sol",
           "file": "./KukoOptionsV1.sol",
-          "scope": 1105,
+          "scope": 1296,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1081,
+        "id": 1272,
         "name": "ImportDirective",
         "src": "444:29:6"
       },
@@ -413,10 +413,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            1104
+            1295
           ],
           "name": "KukoOptionsManagerV1",
-          "scope": 1105
+          "scope": 1296
         },
         "children": [
           {
@@ -431,7 +431,7 @@
               ],
               "name": "_initialize",
               "overrides": null,
-              "scope": 1104,
+              "scope": 1295,
               "stateMutability": "nonpayable",
               "virtual": true,
               "visibility": "internal"
@@ -445,7 +445,7 @@
                       "mutability": "mutable",
                       "name": "optionCount",
                       "overrides": null,
-                      "scope": 1089,
+                      "scope": 1280,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -458,17 +458,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1082,
+                        "id": 1273,
                         "name": "ElementaryTypeName",
                         "src": "541:7:6"
                       }
                     ],
-                    "id": 1083,
+                    "id": 1274,
                     "name": "VariableDeclaration",
                     "src": "541:19:6"
                   }
                 ],
-                "id": 1084,
+                "id": 1275,
                 "name": "ParameterList",
                 "src": "540:21:6"
               },
@@ -480,7 +480,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 1089,
+                      "scope": 1280,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "struct KukoOptionV1[]",
@@ -498,30 +498,30 @@
                             "attributes": {
                               "contractScope": null,
                               "name": "KukoOptionV1",
-                              "referencedDeclaration": 1118,
+                              "referencedDeclaration": 1309,
                               "type": "struct KukoOptionV1"
                             },
-                            "id": 1085,
+                            "id": 1276,
                             "name": "UserDefinedTypeName",
                             "src": "588:12:6"
                           }
                         ],
-                        "id": 1086,
+                        "id": 1277,
                         "name": "ArrayTypeName",
                         "src": "588:14:6"
                       }
                     ],
-                    "id": 1087,
+                    "id": 1278,
                     "name": "VariableDeclaration",
                     "src": "588:21:6"
                   }
                 ],
-                "id": 1088,
+                "id": 1279,
                 "name": "ParameterList",
                 "src": "587:23:6"
               }
             ],
-            "id": 1089,
+            "id": 1280,
             "name": "FunctionDefinition",
             "src": "520:91:6"
           },
@@ -537,7 +537,7 @@
               ],
               "name": "_isManager",
               "overrides": null,
-              "scope": 1104,
+              "scope": 1295,
               "stateMutability": "view",
               "virtual": true,
               "visibility": "internal"
@@ -551,7 +551,7 @@
                       "mutability": "mutable",
                       "name": "id",
                       "overrides": null,
-                      "scope": 1096,
+                      "scope": 1287,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -564,17 +564,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1090,
+                        "id": 1281,
                         "name": "ElementaryTypeName",
                         "src": "637:7:6"
                       }
                     ],
-                    "id": 1091,
+                    "id": 1282,
                     "name": "VariableDeclaration",
                     "src": "637:10:6"
                   }
                 ],
-                "id": 1092,
+                "id": 1283,
                 "name": "ParameterList",
                 "src": "636:12:6"
               },
@@ -586,7 +586,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 1096,
+                      "scope": 1287,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -599,22 +599,22 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1093,
+                        "id": 1284,
                         "name": "ElementaryTypeName",
                         "src": "680:4:6"
                       }
                     ],
-                    "id": 1094,
+                    "id": 1285,
                     "name": "VariableDeclaration",
                     "src": "680:4:6"
                   }
                 ],
-                "id": 1095,
+                "id": 1286,
                 "name": "ParameterList",
                 "src": "679:6:6"
               }
             ],
-            "id": 1096,
+            "id": 1287,
             "name": "FunctionDefinition",
             "src": "617:69:6"
           },
@@ -630,7 +630,7 @@
               ],
               "name": "_resolve",
               "overrides": null,
-              "scope": 1104,
+              "scope": 1295,
               "stateMutability": "nonpayable",
               "virtual": true,
               "visibility": "internal"
@@ -644,7 +644,7 @@
                       "mutability": "mutable",
                       "name": "option",
                       "overrides": null,
-                      "scope": 1103,
+                      "scope": 1294,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "struct KukoOptionV1",
@@ -656,20 +656,20 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "KukoOptionV1",
-                          "referencedDeclaration": 1118,
+                          "referencedDeclaration": 1309,
                           "type": "struct KukoOptionV1"
                         },
-                        "id": 1097,
+                        "id": 1288,
                         "name": "UserDefinedTypeName",
                         "src": "710:12:6"
                       }
                     ],
-                    "id": 1098,
+                    "id": 1289,
                     "name": "VariableDeclaration",
                     "src": "710:26:6"
                   }
                 ],
-                "id": 1099,
+                "id": 1290,
                 "name": "ParameterList",
                 "src": "709:28:6"
               },
@@ -681,7 +681,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 1103,
+                      "scope": 1294,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "int8",
@@ -694,32 +694,32 @@
                           "name": "int8",
                           "type": "int8"
                         },
-                        "id": 1100,
+                        "id": 1291,
                         "name": "ElementaryTypeName",
                         "src": "764:4:6"
                       }
                     ],
-                    "id": 1101,
+                    "id": 1292,
                     "name": "VariableDeclaration",
                     "src": "764:4:6"
                   }
                 ],
-                "id": 1102,
+                "id": 1293,
                 "name": "ParameterList",
                 "src": "763:6:6"
               }
             ],
-            "id": 1103,
+            "id": 1294,
             "name": "FunctionDefinition",
             "src": "692:78:6"
           }
         ],
-        "id": 1104,
+        "id": 1295,
         "name": "ContractDefinition",
         "src": "475:297:6"
       }
     ],
-    "id": 1105,
+    "id": 1296,
     "name": "SourceUnit",
     "src": "377:396:6"
   },
@@ -729,7 +729,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-02-06T22:10:55.147Z",
+  "updatedAt": "2021-02-08T08:08:05.747Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

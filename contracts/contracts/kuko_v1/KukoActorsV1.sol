@@ -59,6 +59,10 @@ abstract contract KukoActorsV1 {
         launcher = _launcher;
     }
 
+    function setLauncher(address _launcher) public ownerOnly {
+        _setLauncher(_launcher);
+    }
+
     function _setRunner(address _runner) internal {
         runner = _runner;
     }

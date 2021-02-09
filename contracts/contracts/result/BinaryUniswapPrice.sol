@@ -24,6 +24,7 @@ abstract contract BinaryUniswapPrice is KukoOptionsManagerV1, Initializable {
         asset = _asset;
     }
 
+    // change current state
     function _initialize(uint256 optionCount) internal override returns (KukoOptionV1[] memory) {
         (uint112 asset0Reserve, uint112 asset1Reserve, ) = uniswapPairAddress.getReserves();
 

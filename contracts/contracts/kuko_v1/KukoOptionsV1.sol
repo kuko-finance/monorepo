@@ -10,18 +10,9 @@
 pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
-struct KukoOptionV1 {
-    uint256 id;
-    string name;
-    uint256 keyValue;
-    int8 finalized;
-    uint256 shares;
-}
+import "./KukoOptionsStateV1.sol";
 
-abstract contract KukoOptionsV1 {
-    KukoOptionV1[] public options;
-    mapping(uint256 => uint256) internal optionIds;
-
+abstract contract KukoOptionsV1 is KukoOptionsStateV1 {
     ///@return Serialized options
     function getOptions()
         public

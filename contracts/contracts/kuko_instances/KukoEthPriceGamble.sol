@@ -42,7 +42,6 @@ contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPr
         _setName(name);
 
         _setOwner(msg.sender);
-        _setLauncher(msg.sender);
 
         _setOwnerShare(20000);
         _setLauncherShare(3300);
@@ -69,7 +68,15 @@ contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPr
 
     function _onClose() internal override {
         _retrieve();
+
         finalEarnings = token.balanceOf(address(this));
+
+        uint256 ownerReward = (finalEarnings * ownerShare) / 1000000;
+        uint256 launcherReward = (finalEarnings * launcherShare) / 1000000;
+        uint256 runnerReward = (finalEarnings * runnerShare) / 1000000;
+        uint256 closerReward = (finalEarnings * closerShare) / 1000000;
+
+        finalEarnings -= (ownerReward + launcherReward + runnerReward + closerReward);
 
         options[0].finalized = _resolve(options[0]);
         options[1].finalized = _resolve(options[1]);
@@ -85,6 +92,11 @@ contract KukoEthPriceGamble is Initializable, YDaiYieldProvider, BinaryUniswapPr
         } else if (options[1].finalized == -1) {
             loserShares += options[1].shares;
         }
+
+        token.transfer(owner, ownerReward);
+        token.transfer(launcher, launcherReward);
+        token.transfer(runner, runnerReward);
+        token.transfer(closer, closerReward);
     }
 
     function deposit(uint256 _option, uint256 _amount) public override isDepositable {

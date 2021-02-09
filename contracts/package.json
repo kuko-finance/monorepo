@@ -22,7 +22,9 @@
     "solhint": "3.3.2",
     "solidity-coverage": "0.7.14",
     "truffle": "5.1.63",
-    "@digix/tempo": "0.2.0"
+    "@digix/tempo": "0.2.0",
+    "truffle-contract-size": "2.0.1",
+    "@truffle/hdwallet-provider": "1.2.1"
   },
   "repository": {
     "type": "git",

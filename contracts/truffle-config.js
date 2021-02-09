@@ -18,6 +18,8 @@
  *
  */
 
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
@@ -35,9 +37,19 @@ module.exports = {
    * $ truffle test --network <network-name>
    */
 
-  plugins: ["solidity-coverage"],
+  plugins: [
+    "solidity-coverage",
+    "truffle-contract-size"
+  ],
 
   networks: {
+    goerli: {
+      provider: () => new HDWalletProvider(
+        process.env.MNEMONIC, process.env.RPC_ENDPOINT
+      ),
+      network_id: 5,
+      skipDryRun: true
+    }
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
@@ -89,7 +101,7 @@ module.exports = {
       settings: {          // See the solidity docs for advice about optimization and evmVersion
        optimizer: {
          enabled: true,
-         runs: 200
+         runs: 1
        },
        evmVersion: "byzantium"
       }
