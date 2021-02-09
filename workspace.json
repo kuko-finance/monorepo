@@ -80,6 +80,21 @@
           }
         }
       }
+    },
+    "kukore-react": {
+      "root": "libs/kukore-react",
+      "sourceRoot": "libs/kukore-react/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/kukore-react/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
