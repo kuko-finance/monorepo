@@ -7,23 +7,11 @@
       "projectType": "application",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
           "options": {
-            "outputPath": "dist/apps/kuko-app",
-            "index": "apps/kuko-app/src/index.html",
-            "main": "apps/kuko-app/src/main.tsx",
-            "polyfills": "apps/kuko-app/src/polyfills.ts",
-            "tsConfig": "apps/kuko-app/tsconfig.app.json",
-            "assets": [
-              "apps/kuko-app/src/favicon.ico",
-              "apps/kuko-app/src/assets"
-            ],
-            "styles": [],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
+            "command": "node ../../node_modules/.bin/react-app-rewired build",
+            "cwd": "apps/kuko-app"
           },
           "configurations": {
             "production": {
@@ -51,9 +39,11 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/web:dev-server",
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
           "options": {
-            "buildTarget": "kuko-app:build"
+            "command": "node ../../node_modules/.bin/react-app-rewired start",
+            "cwd": "apps/kuko-app"
           },
           "configurations": {
             "production": {
@@ -62,21 +52,18 @@
           }
         },
         "lint": {
-          "executor": "@nrwl/linter:eslint",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "lintFilePatterns": [
-              "apps/kuko-app/**/*.{ts,tsx,js,jsx}"
-            ]
+              "command": "node ../../node_modules/.bin/eslint src/**/*.tsx src/**/*.ts",
+              "cwd": "apps/kuko-app"
           }
         },
         "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/kuko-app"
-          ],
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
           "options": {
-            "jestConfig": "apps/kuko-app/jest.config.js",
-            "passWithNoTests": true
+            "command": "node ../../../../node_modules/.bin/react-app-rewired test --watchAll=false",
+            "cwd": "apps/kuko-app"
           }
         }
       }
