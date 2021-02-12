@@ -1,62 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const isValidEmail = require('is-valid-email');
-
-
-const StyledApp = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffe0e0;
-  flex-direction: column;
-`;
-
-const Kuko = styled.span`
-  font-size: 60px;
-`;
-
-const KukoDesc = styled.p`
-  margin: 30px;
-  width: 500px;
-  max-width: 80%;
-  text-align: center;
-  font-family: 'Roboto';
-  font-size: 20px;
-`
-
-const KukoMailInput = styled.input`
-  &:focus {
-        outline: none;
-    }
-  -webkit-appearance: none;
-  border: 1px solid #aa9999;
-  border-radius: 8px;
-  background-color: transparent;
-  font-size: 40px;
-  text-align: center;
-  font-family: 'Roboto';
-  padding: 8px;
-  margin: 30px;
-  max-width: 80%;
-`
-
-const KukoButton = styled.div`
-  border-radius: 8px;
-  padding: 12px;
-  background-color: #ffffff;
-  cursor: pointer;
-  transition: opacity 1s ease-in-out;
-  margin: 30px;
-
-  & span {
-  font-size: 20px;
-  text-align: center;
-  font-family: 'Roboto';
-  }
-`
+import React, { useEffect } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { Web3ReactProvider } from '@web3-react/core';
+import { Web3Provider } from '@ethersproject/providers'
+import Web3Modal from 'web3modal';
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import * as KuiriLeagueV1 from '@kuko-finance/contracts/KuiriLeagueV1.json';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -74,55 +22,35 @@ const GlobalStyle = createGlobalStyle`
 
 export function App() {
 
-  const [email, setEmail] = useState('');
-  const [valid, setValidEmail] = useState(false);
-  const [enrolled, setEnrolled] = useState(false);
-  const [error, setError] = useState(false);
-  const [clicked, setClicked] = useState(false);
-
-  useEffect(() => {
-    setValidEmail(isValidEmail(email));
-  }, [email]);
-
-  useEffect(() => {
-    if (!enrolled && valid && clicked) {
-      fetch('https://waitlist.kuko.finance/api?mail=' + email)
-        .then((res) => {
-          setClicked(false);
-          setEnrolled(true)
-          if (res.status !== 200) {
-            setError(true);
+  return <div>
+    <p>LEL caca</p>
+  <div
+      style={{
+        width: 100,
+        height: 100,
+        backgroundColor: 'red'
+      }}
+      onClick={() => {
+        const modal = new Web3Modal({
+          network: 'mainnet',
+          cacheProvider: true,
+          providerOptions: {
+            walletconnect: {
+              package: WalletConnectProvider,
+              options: {
+                infuraId: process.env.REACT_APP_INFURA_ID
+              }
+            },
           }
-        })
-    }
-  }, [enrolled, email, valid, clicked]);
+        });
+        modal.connect()
+          .then((pro) => {
+            console.log('oui', pro);
+          })
 
-  return (
-    <StyledApp>
-      <GlobalStyle />
-      <Kuko role='img' aria-label='kuko'>🎂</Kuko>
-      <KukoDesc>Kuko is a brand new way of earning competitive staking interests on Ethereum while being 100% decentralized. Enroll in our waiting list now to receive updates.</KukoDesc>
-      <KukoMailInput
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      {
-        enrolled
-          ?
-          (error
-            ? <KukoDesc>An error occured ! You might already be enrolled. If not, try again in a few moments.</KukoDesc>
-            : <KukoDesc>Thank you !</KukoDesc>
-          )
-          :
-          <KukoButton
-            onClick={() => setClicked(true)}
-            style={{
-              opacity: valid ? '1' : '0'
-            }}
-          ><span>Enroll</span></KukoButton>
-      }
-    </StyledApp>
-  );
+      }}
+    />
+  </div>
 }
 
 export default App;

@@ -25,6 +25,9 @@
   "projects": {
     "kuko-app": {
       "tags": []
+    },
+    "kukore-react": {
+      "tags": []
     }
   }
 }
