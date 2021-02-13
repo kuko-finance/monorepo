@@ -54,8 +54,8 @@
         "lint": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-              "command": "node ../../node_modules/.bin/eslint src/**/*.tsx src/**/*.ts",
-              "cwd": "apps/kuko-app"
+            "command": "node ../../node_modules/.bin/eslint src/**/*.tsx src/**/*.ts",
+            "cwd": "apps/kuko-app"
           }
         },
         "test": {
@@ -76,9 +76,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/kukore-react/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/kukore-react/**/*.{ts,tsx,js,jsx}"]
           }
         }
       }
